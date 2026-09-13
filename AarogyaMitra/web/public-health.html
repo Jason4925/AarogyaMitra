@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Public Health &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="chat.html">
+      AI Chat
+     </a>
+     <a href="assessment.html">
+      Assessment
+     </a>
+     <a class="active" href="public-health.html">
+      Public Health
+     </a>
+     <a href="healthcare.html">
+      Healthcare
+     </a>
+     <a href="vaccination.html">
+      Vaccination
+     </a>
+     <a href="profile.html">
+      Profile
+     </a>
+     <button class="btn-ghost btn-sm" id="logoutBtn">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Public Health
+   </div>
+   <div class="portal-head">
+    <div>
+     <h1 class="portal-h1">
+      Health Awareness Center
+     </h1>
+     <p class="portal-muted">
+      Clear, practical information about prevention, vaccination, respiratory health, nutrition and urgent warning signs.
+     </p>
+    </div>
+    <div>
+     <label class="portal-muted">
+      Content language
+      <select class="language-select" id="publicLanguage">
+       <option>
+        English
+       </option>
+       <option>
+        Hindi
+       </option>
+       <option>
+        Marathi
+       </option>
+       <option>
+        Tamil
+       </option>
+       <option>
+        Telugu
+       </option>
+       <option>
+        Bengali
+       </option>
+       <option>
+        Gujarati
+       </option>
+       <option>
+        Kannada
+       </option>
+      </select>
+     </label>
+    </div>
+   </div>
+   <div class="public-health-grid" id="publicHealthGrid">
+    <div class="portal-card">
+     Loading public-health information&hellip;
+    </div>
+   </div>
+   <div class="portal-card" style="margin-top:22px">
+    <div class="portal-kicker">
+     Important
+    </div>
+    <h3>
+     Use authoritative care pathways
+    </h3>
+    <p class="portal-muted">
+     Public-health guidance can support awareness but does not replace an examination or professional diagnosis. For emergencies, use local emergency services.
+    </p>
+   </div>
+  </main>
+  <script src="portal.js">
+  </script>
+  <script src="public-health.js">
+  </script>
+  <script src="view-more.js?v=20">
+  </script>
+  <script>
+   if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+  </script>
+ </body>
+</html>

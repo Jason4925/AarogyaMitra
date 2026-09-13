@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Quick Help &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="assets/aarogyamitra-logo.png" rel="icon"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="chat.html">
+      AI Chat
+     </a>
+     <a href="assessment.html">
+      Assessment
+     </a>
+     <a href="healthcare.html">
+      Healthcare
+     </a>
+     <a href="security.html">
+      Security
+     </a>
+     <a href="accessibility.html">
+      Accessibility
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Quick Help
+   </div>
+   <h1 class="portal-h1">
+    Start with only what matters.
+   </h1>
+   <p class="portal-muted">
+    A shorter triage flow for when you want immediate guidance without completing the full assessment.
+   </p>
+   <section class="portal-grid-3" style="margin-top:24px">
+    <a class="portal-card" href="assessment.html">
+     <div class="portal-card-icon">
+      🚦
+     </div>
+     <h3>
+      Quick triage
+     </h3>
+     <p>
+      Answer the essentials: what is happening, how severe it is, how long it has been happening, and emergency warning signs.
+     </p>
+    </a>
+    <a class="portal-card" href="chat.html">
+     <div class="portal-card-icon">
+      💬
+     </div>
+     <h3>
+      Ask a health question
+     </h3>
+     <p>
+      Chat naturally with AarogyaMitra and receive context-aware health information.
+     </p>
+    </a>
+    <a class="portal-card" href="healthcare.html">
+     <div class="portal-card-icon">
+      📍
+     </div>
+     <h3>
+      Find nearby care
+     </h3>
+     <p>
+      Use risk-aware routing to identify appropriate nearby healthcare options.
+     </p>
+    </a>
+    <a class="portal-card" href="health-record.html">
+     <div class="portal-card-icon">
+      📚
+     </div>
+     <h3>
+      View health history
+     </h3>
+     <p>
+      Review your previous assessments, measurements, timeline and follow-ups.
+     </p>
+    </a>
+    <a class="portal-card" href="public-health.html">
+     <div class="portal-card-icon">
+      📰
+     </div>
+     <h3>
+      Public health
+     </h3>
+     <p>
+      Open prevention, vaccination and health-awareness information.
+     </p>
+    </a>
+   </section>
+   <section class="portal-card" style="margin-top:24px;border-left:4px solid var(--red)">
+    <h3>
+     Do not delay emergency care
+    </h3>
+    <p class="portal-muted">
+     Severe bleeding, severe chest pain, major breathing difficulty, loss of consciousness, stroke symptoms or seizures need immediate professional emergency care.
+    </p>
+    <a class="btn-primary btn-sm" href="healthcare.html">
+     Find emergency-capable care &rarr;
+    </a>
+   </section>
+  </main>
+  <script>
+   if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+  </script>
+ </body>
+</html>

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "who-dengue",
+    "topic": "dengue severe dengue fever headache nausea vomiting rash bleeding",
+    "title": "Dengue and severe dengue",
+    "summary": "Common symptoms can include fever, headache, muscle/joint pain, nausea or vomiting and rash. Severe dengue can involve respiratory distress, major bleeding or shock and needs urgent care.",
+    "source": "WHO",
+    "url": "https://www.who.int/health-topics/dengue-and-severe-dengue",
+    "specific_triggers": [
+      "dengue",
+      "mosquito-borne dengue",
+      "bleeding with fever",
+      "dengue warning signs"
+    ]
+  },
+  {
+    "id": "who-amr",
+    "topic": "antimicrobial resistance antibiotics medicine",
+    "title": "Antimicrobial resistance",
+    "summary": "Misuse and overuse of antimicrobials can contribute to antimicrobial resistance. Antibiotics should be used only when appropriate and according to a qualified clinician's advice.",
+    "source": "WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance",
+    "specific_triggers": [
+      "antibiotic",
+      "antimicrobial resistance",
+      "antibiotic resistance"
+    ]
+  },
+  {
+    "id": "mohfw-nis",
+    "topic": "vaccination immunization vaccines children pregnant mother India",
+    "title": "National Immunization Schedule",
+    "summary": "India's National Immunization Schedule provides milestone-based vaccination guidance for children and pregnant mothers. Users should confirm due doses with an authorized vaccination centre.",
+    "source": "Ministry of Health & Family Welfare, Government of India",
+    "url": "https://www.mohfw.gov.in/pdf/NationalImmunizationSchedule.pdf",
+    "specific_triggers": [
+      "vaccination",
+      "immunization",
+      "vaccine",
+      "vaccines"
+    ]
+  },
+  {
+    "id": "who-india-topics",
+    "topic": "public health health topics India digital health diabetes cardiovascular disease health promotion",
+    "title": "WHO India health topics",
+    "summary": "WHO India provides topic pages covering dengue, diabetes, cardiovascular disease, antimicrobial resistance, health promotion and other public-health subjects.",
+    "source": "WHO India",
+    "url": "https://www.who.int/india/health-topics",
+    "specific_triggers": [
+      "who india",
+      "public health"
+    ]
+  },
+  {
+    "id": "who-headache",
+    "topic": "headache migraine tension headache neurological headache disorders nausea light sensitivity",
+    "title": "Migraine and other headache disorders",
+    "summary": "Headache disorders are common neurological disorders. Recurrent headaches can affect quality of life and may need appropriate assessment and care.",
+    "source": "WHO",
+    "url": "https://www.who.int/en/news-room/fact-sheets/detail/headache-disorders",
+    "specific_triggers": [
+      "headache",
+      "migraine"
+    ]
+  },
+  {
+    "id": "who-diabetes",
+    "topic": "diabetes high blood sugar sugar diabetes mellitus glucose",
+    "title": "Diabetes",
+    "summary": "Diabetes is a chronic condition involving raised blood glucose. Healthy diet, physical activity and appropriate clinical care can help prevent or delay complications.",
+    "source": "WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/diabetes",
+    "specific_triggers": [
+      "diabetes",
+      "blood sugar",
+      "glucose"
+    ]
+  },
+  {
+    "id": "who-hypertension",
+    "topic": "hypertension high blood pressure blood pressure bp cardiovascular",
+    "title": "Hypertension",
+    "summary": "Hypertension means persistently raised blood pressure. Many people have no symptoms, so blood pressure measurement is important for detection and assessment.",
+    "source": "WHO",
+    "url": "https://www.who.int/en/news-room/fact-sheets/detail/hypertension",
+    "specific_triggers": [
+      "hypertension",
+      "high blood pressure",
+      "blood pressure",
+      "bp"
+    ]
+  },
+  {
+    "id": "who-asthma",
+    "topic": "asthma cough wheeze shortness of breath breathing chest tightness inhaler",
+    "title": "Asthma",
+    "summary": "Asthma is a chronic lung disease that can cause cough, wheezing, shortness of breath and chest tightness. Symptoms can worsen and may require emergency care when severe.",
+    "source": "WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/asthma",
+    "specific_triggers": [
+      "asthma",
+      "wheezing",
+      "wheeze",
+      "inhaler"
+    ]
+  },
+  {
+    "id": "who-cvd",
+    "topic": "cardiovascular disease heart attack stroke chest pain chest discomfort shortness of breath dizziness fainting",
+    "title": "Cardiovascular diseases",
+    "summary": "Cardiovascular diseases include disorders of the heart and blood vessels. Chest discomfort, breathing difficulty, light-headedness or fainting can occur in acute events and need prompt medical attention when severe.",
+    "source": "WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-%28cvds%29",
+    "specific_triggers": [
+      "heart attack",
+      "heart disease",
+      "cardiovascular",
+      "chest pain",
+      "chest discomfort"
+    ]
+  },
+  {
+    "id": "who-low-back-pain",
+    "topic": "low back pain back pain lower back musculoskeletal pain sciatica rehabilitation",
+    "title": "Low back pain",
+    "summary": "Low back pain can be acute, sub-acute or chronic and may affect movement and quality of life. Assessment is important when pain persists, worsens or has concerning associated features.",
+    "source": "WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/low-back-pain",
+    "specific_triggers": [
+      "back pain",
+      "lower back",
+      "low back",
+      "sciatica"
+    ]
+  }
+]

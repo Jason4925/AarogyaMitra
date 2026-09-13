@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Share Handoff &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="handoff.html">
+      Handoff
+     </a>
+     <a href="security.html">
+      Security
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Patient-controlled sharing
+   </div>
+   <h1 class="portal-h1">
+    Share AI-to-Doctor Handoff
+   </h1>
+   <p class="portal-muted">
+    Create a time-limited read-only share protected by a one-time access code.
+   </p>
+   <section class="portal-card" style="max-width:760px;margin-top:22px">
+    <label class="field-label">
+     Expiry
+    </label>
+    <select class="field-input" id="expiry">
+     <option value="6">
+      6 hours
+     </option>
+     <option selected="" value="24">
+      24 hours
+     </option>
+     <option value="72">
+      72 hours
+     </option>
+     <option value="168">
+      7 days
+     </option>
+    </select>
+    <button class="btn-primary" id="create" style="margin-top:16px">
+     Create Secure Share
+    </button>
+    <div id="created" style="margin-top:18px">
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <h3>
+     Share history
+    </h3>
+    <div id="list" style="margin-top:14px">
+     Loading&hellip;
+    </div>
+   </section>
+  </main>
+  <script>
+   const API=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';function get(){try{return JSON.parse(localStorage.getItem('aarogyamitra_session')||'null')}catch{return null}}async function j(path,opt={}){const s=get();if(!s?.token)throw Error('Login required');const r=await fetch(API+path,{...opt,headers:{...(opt.headers||{}),Authorization:'Bearer '+s.token,'Content-Type':'application/json'}});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.detail||'Request failed');return d}async function load(){try{const d=await j('/handoff/shares');document.getElementById('list').innerHTML=(d.shares||[]).length?d.shares.map(x=>`<div class="portal-card" style="margin:8px 0"><strong>${x.revoked?'Revoked':'Active'}</strong><div class="portal-muted">Expires ${x.expires_at}</div>${!x.revoked?`<button class="btn-ghost btn-sm" onclick="revoke('${x.id}')">Revoke</button>`:''}</div>`).join(''):'<p class="portal-muted">No shares created.</p>'}catch(e){document.getElementById('list').textContent=e.message}}async function revoke(id){try{await j('/handoff/shares/revoke/'+id,{method:'POST'});load()}catch(e){alert(e.message)}}document.getElementById('create').onclick=async()=>{try{const d=await j('/handoff/shares',{method:'POST',body:JSON.stringify({expiry_hours:Number(expiry.value)})});document.getElementById('created').innerHTML=`<div class="security-message success"><strong>Share created.</strong><div>Access token: <code>${d.token}</code></div><div>Access code: <code>${d.access_code}</code></div><div>Expires: ${d.expires_at}</div><div class="portal-muted" style="margin-top:8px">Share both values through separate channels. Do not post them publicly.</div></div>`;load()}catch(e){document.getElementById('created').innerHTML='<div class="security-message error">'+e.message+'</div>'}};document.addEventListener('DOMContentLoaded',load)
+  </script>
+ </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Measurements &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="health-record.html">
+      Health Record
+     </a>
+     <a href="security.html">
+      Security
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-head">
+    <div>
+     <div class="portal-kicker">
+      Structured Health Record
+     </div>
+     <h1 class="portal-h1">
+      Measurements
+     </h1>
+     <p class="portal-muted">
+      Record values with date, unit and provenance. AarogyaMitra will not diagnose from one measurement.
+     </p>
+    </div>
+    <a class="btn-ghost" href="health-record.html">
+     &larr; Health Record
+    </a>
+   </div>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="portal-grid-4">
+     <select class="field-input" id="metric">
+      <option value="blood_pressure">
+       Blood pressure
+      </option>
+      <option value="blood_glucose">
+       Blood glucose
+      </option>
+      <option value="temperature">
+       Temperature
+      </option>
+      <option value="oxygen_saturation">
+       Oxygen saturation
+      </option>
+      <option value="heart_rate">
+       Heart rate
+      </option>
+      <option value="weight">
+       Weight
+      </option>
+      <option value="menstrual_cycle">
+       Menstrual cycle
+      </option>
+     </select>
+     <input class="field-input" id="value" placeholder="Value"/>
+     <input class="field-input" id="unit" placeholder="Unit"/>
+     <input class="field-input" id="note" placeholder="Optional note"/>
+    </div>
+    <button class="btn-primary btn-sm" id="save" style="margin-top:14px">
+     Save measurement
+    </button>
+    <div class="portal-muted" id="msg" style="margin-top:10px">
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <h3>
+     Recent measurements
+    </h3>
+    <div id="list" style="margin-top:14px">
+     Loading&hellip;
+    </div>
+   </section>
+  </main>
+  <script>
+   const API=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';function s(){try{return JSON.parse(localStorage.getItem('aarogyamitra_session')||'null')}catch{return null}}async function j(path,opt={}){const ss=s();if(!ss?.token)throw Error('Login required');const r=await fetch(API+path,{...opt,headers:{...(opt.headers||{}),Authorization:'Bearer '+ss.token,'Content-Type':'application/json'}});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.detail||'Request failed');return d}function render(items){document.getElementById('list').innerHTML=items.length?'<div class="table-wrap"><table class="portal-table"><thead><tr><th>Metric</th><th>Value</th><th>Date</th><th>Source</th></tr></thead><tbody>'+items.map(x=>`<tr><td>${x.metric}</td><td>${x.value} ${x.unit}</td><td>${x.measured_at}</td><td>${x.source}${x.verified?' · verified':''}</td></tr>`).join('')+'</tbody></table></div>':'<p class="portal-muted">No measurements recorded yet.</p>'}async function load(){try{render((await j('/health-record/measurements')).measurements||[])}catch(e){document.getElementById('list').innerHTML='<p class="security-empty">'+e.message+'</p>'}}document.getElementById('save').onclick=async()=>{try{await j('/health-record/measurements',{method:'POST',body:JSON.stringify({metric:document.getElementById('metric').value,value:document.getElementById('value').value,unit:document.getElementById('unit').value,note:document.getElementById('note').value})});document.getElementById('msg').textContent='Measurement saved.';document.getElementById('value').value='';load()}catch(e){document.getElementById('msg').textContent=e.message}};document.addEventListener('DOMContentLoaded',load)
+  </script>
+ </body>
+</html>

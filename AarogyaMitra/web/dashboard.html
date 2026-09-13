@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Dashboard &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="chat.html">
+      AI Chat
+     </a>
+     <a href="assessment.html">
+      Assessment
+     </a>
+     <a href="public-health.html">
+      Public Health
+     </a>
+     <a href="vaccination.html">
+      Vaccination
+     </a>
+     <a href="healthcare.html">
+      Healthcare
+     </a>
+     <a href="profile.html">
+      Profile
+     </a>
+     <button class="btn-ghost btn-sm" id="logoutBtn">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-head">
+    <div>
+     <div class="portal-kicker">
+      Personal Health Workspace
+     </div>
+     <h1 class="portal-h1" id="welcomeName">
+      Welcome
+     </h1>
+     <p class="portal-muted">
+      Your AarogyaMitra services are ready.
+     </p>
+    </div>
+    <a class="btn-primary" href="assessment.html">
+     Start Health Assessment &rarr;
+    </a>
+   </div>
+   <div class="portal-grid-4">
+    <div class="stat-card">
+     <div class="stat-label">
+      Your account
+     </div>
+     <div class="stat-value">
+      Active
+     </div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-label">
+      Adaptive chat
+     </div>
+     <div class="stat-value">
+      ON
+     </div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-label">
+      Memory
+     </div>
+     <div class="stat-value">
+      ON
+     </div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-label">
+      Emergency alert
+     </div>
+     <div class="stat-value">
+      ON
+     </div>
+    </div>
+   </div>
+   <section class="section" style="padding:30px 0 0;background:transparent">
+    <div class="portal-kicker">
+     Core Health Features
+    </div>
+    <h2 class="portal-h1" style="font-size:2rem;margin-top:4px">
+     Your essential AarogyaMitra tools
+    </h2>
+    <div class="portal-grid-3" style="margin-top:18px">
+     <a class="portal-card" href="chat.html">
+      <div class="portal-card-icon">
+       💬
+      </div>
+      <h3>
+       AI Chat &amp; Adaptive Symptoms
+      </h3>
+      <p>
+       Chat naturally with context-aware follow-up questions and conversational memory.
+      </p>
+     </a>
+     <a class="portal-card" href="assessment.html">
+      <div class="portal-card-icon">
+       🩺
+      </div>
+      <h3>
+       Health Assessment
+      </h3>
+      <p>
+       Run the structured assessment, dynamic risk engine and explainable health report.
+      </p>
+     </a>
+     <a class="portal-card" href="report.html">
+      <div class="portal-card-icon">
+       📄
+      </div>
+      <h3>
+       My Latest Report
+      </h3>
+      <p>
+       View your latest risk assessment, patient summary, medicine information and next steps.
+      </p>
+     </a>
+     <a class="portal-card" href="handoff.html">
+      <div class="portal-card-icon">
+       🤝
+      </div>
+      <h3>
+       AI-to-Doctor Handoff
+      </h3>
+      <p>
+       Prepare a structured summary containing concern, symptoms, history, questions, risk and timeline.
+      </p>
+     </a>
+     <a class="portal-card" href="healthcare.html">
+      <div class="portal-card-icon">
+       📍
+      </div>
+      <h3>
+       Smart Healthcare Routing
+      </h3>
+      <p>
+       Find nearby healthcare options ranked by distance, type and relevance.
+      </p>
+     </a>
+     <a class="portal-card" href="vaccination.html">
+      <div class="portal-card-icon">
+       💉
+      </div>
+      <h3>
+       Vaccination Schedule
+      </h3>
+      <p>
+       Check milestone-based vaccination guidance using your date of birth.
+      </p>
+     </a>
+     <a class="portal-card" href="public-health.html">
+      <div class="portal-card-icon">
+       🦠
+      </div>
+      <h3>
+       Public Health Center
+      </h3>
+      <p>
+       Prevention, awareness, vaccination and urgent warning-sign guidance.
+      </p>
+     </a>
+     <a class="portal-card" href="doctor-care-plan.html">
+      <div class="portal-card-icon">
+       🧠
+      </div>
+      <h3>
+       Care Plan
+      </h3>
+      <p>
+       See your risk-aware next-step care plan.
+      </p>
+     </a>
+     <a class="portal-card" href="health-record.html">
+      <div class="portal-card-icon">
+       📚
+      </div>
+      <h3>
+       My Health Record
+      </h3>
+      <p>
+       Review your longitudinal assessment history, risk trend, timeline and follow-ups.
+      </p>
+     </a>
+     <a class="portal-card" href="quick-help.html">
+      <div class="portal-card-icon">
+       🚦
+      </div>
+      <h3>
+       Quick Help
+      </h3>
+      <p>
+       Start with only the essential questions when you need focused guidance.
+      </p>
+     </a>
+     <a class="portal-card" href="measurements.html">
+      <div class="portal-card-icon">
+       📏
+      </div>
+      <h3>
+       Measurements
+      </h3>
+      <p>
+       Track blood pressure, glucose, temperature, oxygen saturation, heart rate and weight.
+      </p>
+     </a>
+     <a class="portal-card" href="health-documents.html">
+      <div class="portal-card-icon">
+       📎
+      </div>
+      <h3>
+       Health Documents
+      </h3>
+      <p>
+       Upload reports and review extracted information before confirming it.
+      </p>
+     </a>
+     <a class="portal-card" href="handoff-share.html">
+      <div class="portal-card-icon">
+       🔗
+      </div>
+      <h3>
+       Share Handoff
+      </h3>
+      <p>
+       Create a time-limited, access-code-protected clinical summary share.
+      </p>
+     </a>
+     <a class="portal-card" href="caregiver.html">
+      <div class="portal-card-icon">
+       👥
+      </div>
+      <h3>
+       Caregiver
+      </h3>
+      <p>
+       Configure optional, consent-based emergency and follow-up support.
+      </p>
+     </a>
+     <a class="portal-card" href="feedback.html">
+      <div class="portal-card-icon">
+       📝
+      </div>
+      <h3>
+       Report an Issue
+      </h3>
+      <p>
+       Flag incorrect information, safety concerns, translations or technical problems.
+      </p>
+     </a>
+     <a class="portal-card" href="accessibility.html">
+      <div class="portal-card-icon">
+       ♿
+      </div>
+      <h3>
+       Accessibility
+      </h3>
+      <p>
+       Large text, high contrast and simple-language preferences.
+      </p>
+     </a>
+     <a class="portal-card" href="care-pathway.html">
+      <div class="portal-card-icon">
+       🧭
+      </div>
+      <h3>
+       Care Pathways
+      </h3>
+      <p>
+       See a risk-aware next-step pathway from assessment to appropriate professional care.
+      </p>
+     </a>
+     <a class="portal-card" href="security.html">
+      <div class="portal-card-icon">
+       🔐
+      </div>
+      <h3>
+       Security Center
+      </h3>
+      <p>
+       Manage memory, consent, personal-data and account security controls.
+      </p>
+     </a>
+     <a class="portal-card" href="medication-safety.html">
+      <div class="portal-card-icon">
+       💊
+      </div>
+      <h3>
+       Medication Safety
+      </h3>
+      <p>
+       Run conservative safety prompts for your clinician-prescribed medicine list.
+      </p>
+     </a>
+    </div>
+   </section>
+   <section class="portal-card" id="personalSummary" style="margin-top:28px;margin-bottom:20px">
+    <div class="portal-kicker">
+     Current Health Snapshot
+    </div>
+    <h3 id="summaryTitle">
+     Checking your current health snapshot&hellip;
+    </h3>
+    <p class="portal-muted" id="summaryText">
+    </p>
+    <div id="dashboardRisk" style="margin-top:14px">
+    </div>
+   </section>
+   <section class="section" style="padding:10px 0 0;background:transparent">
+    <div class="portal-kicker">
+     Personal Health Intelligence
+    </div>
+    <div class="portal-grid-3" style="margin-top:18px">
+     <section class="portal-card">
+      <div class="portal-kicker">
+       📈 My Health Journey
+      </div>
+      <h3>
+       Health Timeline
+      </h3>
+      <div id="dashboardTimeline" style="margin-top:14px">
+       Checking your health journey&hellip;
+      </div>
+     </section>
+     <section class="portal-card">
+      <div class="portal-kicker">
+       🔄 Follow-Up Intelligence
+      </div>
+      <div id="followupBox" style="margin-top:10px">
+       Checking your next follow-up&hellip;
+      </div>
+     </section>
+     <section class="portal-card">
+      <div class="portal-kicker">
+       📰 Today&rsquo;s Awareness
+      </div>
+      <h3 id="awarenessTitle">
+       Checking today&rsquo;s awareness&hellip;
+      </h3>
+      <p class="portal-muted" id="awarenessText">
+      </p>
+     </section>
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:20px">
+    <div class="portal-kicker">
+     Privacy Information
+    </div>
+    <h3>
+     Your privacy
+    </h3>
+    <p class="portal-muted">
+     Review how AarogyaMitra stores and uses your information.
+    </p>
+    <div class="followup-buttons">
+     <a class="btn-ghost btn-sm" href="privacy.html">
+      Open Privacy
+     </a>
+     <a class="btn-ghost btn-sm" href="security.html">
+      Security Center
+     </a>
+    </div>
+   </section>
+   <section class="section" style="padding:24px 0 0;background:transparent">
+    <div class="portal-card emergency">
+     <div class="portal-card-icon">
+      🚨
+     </div>
+     <h3>
+      Emergency Assistance
+     </h3>
+     <p>
+      High-risk messages can trigger your registered family/caregiver call. Seek professional emergency care immediately for life-threatening symptoms.
+     </p>
+     <div class="followup-buttons">
+      <a class="btn-primary btn-sm" href="healthcare.html">
+       📍 Find Nearby Care
+      </a>
+      <a class="btn-ghost btn-sm" href="profile.html">
+       👤 Check Emergency Contact
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <script src="portal.js?v=15">
+  </script>
+  <script src="view-more.js?v=20">
+  </script>
+  <script>
+   if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+  </script>
+ </body>
+</html>

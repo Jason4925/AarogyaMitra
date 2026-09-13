@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   AI Red-Team &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <div class="nav-logo">
+     <img class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </div>
+    <div class="portal-links">
+     <a href="admin.html">
+      Admin
+     </a>
+     <button class="btn-ghost btn-sm" id="logout">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-head">
+    <div>
+     <div class="portal-kicker">
+      🧪 Safety
+     </div>
+     <h1 class="portal-h1">
+      AI Red-Team Lab.
+     </h1>
+     <p class="portal-muted">
+      Adversarial engineering tests for unsafe and uncertain outputs.
+     </p>
+    </div>
+    <button class="btn-primary" id="run">
+     Run All Tests
+    </button>
+   </div>
+   <div class="portal-card" id="summary">
+    Ready.
+   </div>
+   <div id="results" style="margin-top:20px">
+   </div>
+  </main>
+  <script src="admin-redteam.js?v=23">
+  </script>
+ </body>
+</html>

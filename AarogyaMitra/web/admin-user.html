@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   User Detail &mdash; AarogyaMitra Admin
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="admin.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+     <span class="brand-admin-label">
+      Admin
+     </span>
+    </a>
+    <button class="btn-ghost btn-sm" onclick="location.href='admin.html'">
+     &larr; Back
+    </button>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Patient / User Management
+   </div>
+   <h1 class="portal-h1" id="userTitle">
+    User
+   </h1>
+   <div class="patient-detail" style="margin-top:22px">
+    <section class="patient-panel" id="profilePanel">
+    </section>
+    <section class="patient-panel" id="statePanel">
+    </section>
+    <section class="patient-panel">
+     <h3>
+      Recent Conversation
+     </h3>
+     <div class="chat-history-panel" id="historyPanel" style="margin-top:0">
+     </div>
+    </section>
+    <section class="patient-panel">
+     <h3>
+      Emergency Timeline
+     </h3>
+     <div id="emergencyPanel">
+     </div>
+    </section>
+    <section class="patient-panel">
+     <h3>
+      Latest Report
+     </h3>
+     <div id="reportPanel">
+     </div>
+    </section>
+   </div>
+  </main>
+  <script src="portal.js">
+  </script>
+  <script src="admin-user.js">
+  </script>
+  <script src="view-more.js?v=20">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Caregiver &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="security.html">
+      Security
+     </a>
+     <a href="profile.html">
+      Profile
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Caregiver
+   </div>
+   <h1 class="portal-h1">
+    Trusted support
+   </h1>
+   <p class="portal-muted">
+    Optional, consent-based caregiver access. Start with emergency-only permissions unless you need more.
+   </p>
+   <section class="portal-card" style="max-width:760px;margin-top:22px">
+    <div class="portal-grid-3">
+     <input class="field-input" id="name" placeholder="Caregiver name"/>
+     <input class="field-input" id="contact" placeholder="Phone or email"/>
+     <select class="field-input" id="permission">
+      <option value="emergency">
+       Emergency only
+      </option>
+      <option value="emergency,followup">
+       Emergency + follow-up reminders
+      </option>
+      <option value="emergency,followup,reports">
+       Emergency + follow-ups + reports
+      </option>
+     </select>
+    </div>
+    <button class="btn-primary" id="save" style="margin-top:16px">
+     Save caregiver
+    </button>
+    <div class="portal-muted" id="msg" style="margin-top:12px">
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <h3>
+     Current caregiver
+    </h3>
+    <div class="portal-muted" id="current">
+     Loading&hellip;
+    </div>
+   </section>
+  </main>
+  <script>
+   const API=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';function s(){try{return JSON.parse(localStorage.getItem('aarogyamitra_session')||'null')}catch{return null}}async function j(path,opt={}){const ss=s();if(!ss?.token)throw Error('Login required');const r=await fetch(API+path,{...opt,headers:{...(opt.headers||{}),Authorization:'Bearer '+ss.token,'Content-Type':'application/json'}});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.detail||'Request failed');return d}async function load(){try{const c=(await j('/caregiver')).caregiver;document.getElementById('current').innerHTML=c?`<strong>${c.caregiver_name}</strong><div>${c.caregiver_contact}</div><div>Permissions: ${(c.permissions||[]).join(', ')}</div>`:'No caregiver configured.'}catch(e){document.getElementById('current').textContent=e.message}}document.getElementById('save').onclick=async()=>{try{const d=await j('/caregiver',{method:'PUT',body:JSON.stringify({name:name.value,contact:contact.value,permissions:permission.value.split(',')})});document.getElementById('msg').textContent='Caregiver updated.';load()}catch(e){document.getElementById('msg').textContent=e.message}};document.addEventListener('DOMContentLoaded',load)
+  </script>
+ </body>
+</html>

@@ -1,0 +1,5 @@
+window.AAROGYAMITRA_CONFIG = {
+  API_BASE: 'http://localhost:8000',
+  SUPABASE_URL: '',
+  SUPABASE_PUBLISHABLE_KEY: ''
+};

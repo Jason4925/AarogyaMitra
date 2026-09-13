@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Medication Safety &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="health-record.html">
+      Health Record
+     </a>
+     <a href="security.html">
+      Security
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Medication Safety
+   </div>
+   <h1 class="portal-h1">
+    Review prescribed medicines safely.
+   </h1>
+   <p class="portal-muted">
+    This is a safety prompt, not a prescription or a validated interaction database. Do not stop or change prescribed treatment based on this page.
+   </p>
+   <section class="portal-card" style="max-width:800px;margin-top:22px">
+    <label class="field-label">
+     Current prescribed medicines
+    </label>
+    <textarea class="field-textarea" id="medications" placeholder="List medicines exactly as prescribed" rows="4"></textarea>
+    <div class="portal-grid-3" style="margin-top:14px">
+     <input class="field-input" id="age" placeholder="Age"/>
+     <input class="field-input" id="weight" placeholder="Weight (kg)"/>
+     <select class="field-input" id="pregnancy">
+      <option>
+       No pregnancy/breastfeeding
+      </option>
+      <option>
+       Pregnant
+      </option>
+      <option>
+       Breastfeeding
+      </option>
+     </select>
+    </div>
+    <label class="field-label" style="display:block;margin-top:14px">
+     Known allergies
+    </label>
+    <input class="field-input" id="allergies" placeholder="e.g. penicillin"/>
+    <button class="btn-primary" id="check" style="margin-top:14px">
+     Run safety check
+    </button>
+    <div id="result" style="margin-top:16px">
+    </div>
+   </section>
+  </main>
+  <script>
+   const API=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';check.onclick=async()=>{try{const s=JSON.parse(localStorage.getItem('aarogyamitra_session')||'null');if(!s?.token)throw Error('Login required');const r=await fetch(API+'/medication/check',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+s.token},body:JSON.stringify({medications:medications.value,age:age.value,weight:weight.value,pregnancy:pregnancy.value,allergies:allergies.value})});const d=await r.json();if(!r.ok)throw Error(d.detail||'Check failed');result.innerHTML=`<div class="security-message ${d.alerts?.length?'warning':'success'}"><strong>${d.alerts?.length?'Review recommended':'No basic safety prompt detected'}</strong>${d.alerts?.map(x=>`<div style="margin-top:8px">• ${x}</div>`).join('')||''}<div style="margin-top:10px">${d.note||''}</div></div>`}catch(e){result.innerHTML='<div class="security-message error">'+e.message+'</div>'}}
+  </script>
+ </body>
+</html>

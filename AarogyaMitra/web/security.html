@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="AarogyaMitra Security Center" name="description"/>
+  <title>
+   Security Center &mdash; AarogyaMitra
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <style>
+   .security-page{max-width:1100px;margin:0 auto;padding:44px 24px 70px}
+    .security-hero{margin-bottom:24px}
+    .security-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .security-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px;box-shadow:var(--sh)}
+    .security-card h3{margin:5px 0 8px;font-size:1.1rem}
+    .security-card p{color:var(--ink-3);line-height:1.6;font-size:.86rem}
+    .security-card-full{grid-column:1/-1}
+    .security-status-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+    .security-status-grid div{padding:13px;border:1px solid var(--border);border-radius:12px;background:var(--ivory)}
+    .security-status-grid span{display:block;color:var(--ink-3);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+    .security-status-grid strong{display:block;margin-top:5px;font-size:.84rem}
+    .security-detail-block{margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
+    .security-detail-block h4{font-size:.8rem;margin-bottom:6px}
+    .security-detail-block p{margin:0}
+    .privacy-toggle{display:flex;align-items:flex-start;gap:10px;margin-top:14px;font-size:.86rem}
+    .privacy-toggle input{margin-top:3px;accent-color:var(--teal)}
+    .security-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .danger-zone{border-color:#e7b9b9}
+    .security-message{margin:18px 0 0;padding:12px 14px;border-radius:10px;font-size:.82rem}
+    .security-message.info{background:var(--ivory);color:var(--ink-2)}
+    .security-message.success{background:#eef8f1;color:#27623b}
+    .security-message.warning{background:#fff6df;color:#805e00}
+    .security-message.error{background:#fff0f0;color:#8f2d2d}
+    .security-empty{color:var(--red)}
+    @media(max-width:760px){.security-grid{grid-template-columns:1fr}.security-status-grid{grid-template-columns:1fr 1fr}.security-card-full{grid-column:auto}}
+    @media(max-width:480px){.security-status-grid{grid-template-columns:1fr}}
+  </style>
+  <style>
+   .danger-delete-btn{background:#b4233a;color:#fff;border:1px solid #b4233a;padding:9px 18px;border-radius:10px;font-size:.85rem;font-family:inherit;font-weight:600;cursor:pointer;transition:.2s ease;box-shadow:none}
+  .danger-delete-btn:hover{background:#8f1b2f;border-color:#8f1b2f}
+  .danger-delete-btn:disabled{background:#d8a3ab;border-color:#d8a3ab;color:#fff;cursor:not-allowed}
+  .delete-modal{display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;padding:20px}
+  .delete-modal.open{display:flex}
+  .delete-backdrop{position:absolute;inset:0;background:rgba(17,24,39,.58);backdrop-filter:blur(3px)}
+  .delete-dialog{position:relative;width:min(520px,100%);background:var(--white);border:1px solid #e7b9b9;border-radius:18px;padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.24);z-index:1}
+  .delete-close{position:absolute;right:14px;top:10px;width:34px;height:34px;border:0;background:transparent;color:var(--ink-3);font-size:26px;cursor:pointer}
+  .delete-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff0f0;color:#a11d2f;border:1px solid #e7b9b9;font-weight:700;font-size:20px;margin-bottom:12px}
+  .delete-dialog h2{font-family:var(--fnt-d);font-size:1.7rem;margin:4px 0 10px;color:var(--ink)}
+  .delete-confirm-box{margin-top:18px;padding:16px;border:1px solid #e8c0c5;background:#fff8f8;border-radius:12px}
+  .delete-confirm-box strong{display:block;font-size:.86rem;color:var(--ink-2);margin-bottom:10px}
+  .delete-confirm-box code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#feecef;padding:2px 6px;border-radius:5px;color:#8f1b2f}
+  .delete-confirm-box input{width:100%;box-sizing:border-box;border:1px solid #d5a2aa;border-radius:9px;padding:12px 13px;background:#fff;font:inherit;outline:none}
+  .delete-confirm-box input:focus{border-color:#b4233a;box-shadow:0 0 0 3px rgba(180,35,58,.12)}
+  #deleteConfirmationHint{font-size:.72rem;color:var(--ink-3);margin-top:8px}
+  .delete-dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;flex-wrap:wrap}
+  </style>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="profile.html">
+      Profile
+     </a>
+     <a class="active" href="security.html">
+      Security
+     </a>
+     <a href="privacy.html">
+      Privacy
+     </a>
+     <a href="accessibility.html">
+      Accessibility
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="security-page">
+   <div class="security-hero">
+    <div class="portal-kicker">
+     🔐 Security Center
+    </div>
+    <h1 class="portal-h1">
+     Security, privacy &amp; account controls.
+    </h1>
+    <p class="portal-muted">
+     All security-sensitive account controls are managed here. Your basic profile remains separate.
+    </p>
+   </div>
+   <section class="security-grid">
+    <article class="security-card security-card-full">
+     <div class="portal-kicker">
+      Security posture
+     </div>
+     <h3>
+      Your account status
+     </h3>
+     <div id="securitySummary">
+      <p class="portal-muted">
+       Checking security controls&hellip;
+      </p>
+     </div>
+     <div class="security-message info" id="securityMsg">
+      Loading security settings&hellip;
+     </div>
+    </article>
+    <article class="security-card">
+     <div class="portal-kicker">
+      Conversation Memory
+     </div>
+     <h3>
+      Control AI memory
+     </h3>
+     <p id="memoryStatus">
+      Checking memory setting&hellip;
+     </p>
+     <label class="privacy-toggle">
+      <input id="memoryToggle" type="checkbox"/>
+      <span>
+       Allow AarogyaMitra to use previous conversations as context.
+      </span>
+     </label>
+     <div class="security-actions">
+      <button class="btn-ghost btn-sm" id="clearMemoryBtn" type="button">
+       Clear Conversation History
+      </button>
+     </div>
+    </article>
+    <article class="security-card">
+     <div class="portal-kicker">
+      Consent
+     </div>
+     <h3>
+      Sharing permissions
+     </h3>
+     <p>
+      Control optional sharing and escalation behavior.
+     </p>
+     <div class="consent-grid">
+      <label class="privacy-toggle">
+       <input id="consentHandoff" type="checkbox"/>
+       <span>
+        Doctor Handoff sharing
+       </span>
+      </label>
+      <label class="privacy-toggle">
+       <input id="consentEmergency" type="checkbox"/>
+       <span>
+        Emergency Contact escalation
+       </span>
+      </label>
+      <label class="privacy-toggle">
+       <input id="consentAnalytics" type="checkbox"/>
+       <span>
+        De-identified population analytics
+       </span>
+      </label>
+     </div>
+     <button class="btn-primary btn-sm" id="saveConsentsBtn" style="margin-top:14px" type="button">
+      Save Consent Preferences
+     </button>
+    </article>
+    <article class="security-card">
+     <div class="portal-kicker">
+      Personal Data
+     </div>
+     <h3>
+      Export your data
+     </h3>
+     <p>
+      Download a machine-readable copy of your stored application and health information.
+     </p>
+     <button class="btn-ghost btn-sm" id="exportDataBtn" type="button">
+      Export My Data
+     </button>
+    </article>
+    <article class="security-card danger-zone">
+     <div class="portal-kicker">
+      Account
+     </div>
+     <h3>
+      Delete account
+     </h3>
+     <p>
+      Permanently remove your application and user-owned health data. This action cannot be undone.
+     </p>
+     <button class="danger-delete-btn" id="deleteAccountBtn" type="button">
+      Delete My Account
+     </button>
+    </article>
+   </section>
+  </main>
+  <div aria-hidden="true" class="delete-modal" id="deleteModal">
+   <div class="delete-backdrop" data-close-delete="">
+   </div>
+   <div aria-labelledby="deleteTitle" aria-modal="true" class="delete-dialog" role="dialog">
+    <button aria-label="Close" class="delete-close" id="deleteCloseBtn" type="button">
+     &times;
+    </button>
+    <div class="delete-icon">
+     !
+    </div>
+    <div class="portal-kicker" style="color:#a11d2f">
+     Danger Zone
+    </div>
+    <h2 id="deleteTitle">
+     Delete your AarogyaMitra account?
+    </h2>
+    <p class="portal-muted">
+     This permanently deletes your account and user-owned health data. This action cannot be undone.
+    </p>
+    <div class="delete-confirm-box">
+     <strong>
+      Type
+      <code>
+       DELETE MY ACCOUNT
+      </code>
+      to confirm.
+     </strong>
+     <input autocomplete="off" id="deleteConfirmationInput" placeholder="DELETE MY ACCOUNT" spellcheck="false" type="text"/>
+     <div id="deleteConfirmationHint">
+      The red delete button will stay disabled until the exact text is entered.
+     </div>
+    </div>
+    <div class="delete-dialog-actions">
+     <button class="btn-ghost btn-sm" id="deleteCancelBtn" type="button">
+      Cancel
+     </button>
+     <button class="danger-delete-btn danger-dialog-btn" disabled="" id="deleteConfirmBtn" type="button">
+      Permanently Delete Account
+     </button>
+    </div>
+   </div>
+  </div>
+  <script src="security.js?v=20">
+  </script>
+ </body>
+</html>

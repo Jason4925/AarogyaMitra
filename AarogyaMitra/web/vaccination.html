@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Vaccination &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="chat.html">
+      AI Chat
+     </a>
+     <a class="active" href="vaccination.html">
+      Vaccination
+     </a>
+     <a href="healthcare.html">
+      Healthcare
+     </a>
+     <a href="profile.html">
+      Profile
+     </a>
+     <button class="btn-ghost btn-sm" id="logoutBtn">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-head">
+    <div>
+     <div class="portal-kicker">
+      Preventive Care
+     </div>
+     <h1 class="portal-h1">
+      Vaccination Guidance
+     </h1>
+     <p class="portal-muted">
+      Check the Government of India National Immunization Schedule milestones using a date of birth.
+     </p>
+    </div>
+   </div>
+   <section class="portal-card">
+    <div class="form-inline-grid">
+     <label>
+      Date of Birth
+      <input id="dob" required="" type="date"/>
+     </label>
+     <div style="display:flex;align-items:end">
+      <button class="btn-primary" id="checkVaccination">
+       Check Schedule
+      </button>
+     </div>
+    </div>
+    <p class="portal-muted" style="margin-top:12px;font-size:.78rem">
+     The schedule is informational. Confirm due/missed doses with a government vaccination centre or qualified healthcare professional.
+    </p>
+   </section>
+   <section class="portal-card" id="vaxResult" style="margin-top:18px;display:none">
+   </section>
+   <p style="margin-top:16px;font-size:.75rem;color:var(--ink-3)">
+    Government source: Ministry of Health &amp; Family Welfare, National Immunization Schedule.
+    <a href="https://www.mohfw.gov.in/pdf/NationalImmunizationSchedule.pdf" rel="noopener" style="color:var(--teal);font-weight:600" target="_blank">
+     View official schedule &nearrow;
+    </a>
+   </p>
+  </main>
+  <script src="portal.js">
+  </script>
+  <script src="vaccination.js">
+  </script>
+ </body>
+</html>

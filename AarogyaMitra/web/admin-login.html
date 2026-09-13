@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Admin Login &mdash; AarogyaMitra
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=DM+Sans:opsz,wght@9..40,300,400,500,600&amp;display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <a class="btn-ghost btn-sm" href="index.html">
+     &larr; Back
+    </a>
+   </div>
+  </header>
+  <main class="auth-page">
+   <section class="auth-card-xl">
+    <div class="portal-kicker">
+     Team Backend
+    </div>
+    <h1 class="auth-title">
+     Admin Login.
+    </h1>
+    <p class="auth-subtitle">
+     Restricted access for the AarogyaMitra project team.
+    </p>
+    <form id="adminLoginForm">
+     <div class="auth-field">
+      <label for="email">
+       Admin Email
+      </label>
+      <input autocomplete="username" id="email" placeholder="admin@aarogyamitra.local" required="" type="email"/>
+     </div>
+     <div class="auth-field">
+      <label for="password">
+       Admin Password
+      </label>
+      <input autocomplete="current-password" id="password" placeholder="Enter admin password" required="" type="password"/>
+     </div>
+     <div class="auth-error" id="authError">
+     </div>
+     <button class="btn-primary full" type="submit">
+      Open Admin Dashboard
+     </button>
+    </form>
+    <div class="auth-switch">
+     <a href="login.html">
+      User login
+     </a>
+    </div>
+   </section>
+  </main>
+  <script src="admin-auth.js?v=12">
+  </script>
+ </body>
+</html>

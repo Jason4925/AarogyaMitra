@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   AI Chat &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="chat.html">
+      AI Chat
+     </a>
+     <a href="assessment.html">
+      Assessment
+     </a>
+     <a href="public-health.html">
+      Public Health
+     </a>
+     <a href="health-record.html">
+      Health Record
+     </a>
+     <a href="vaccination.html">
+      Vaccination
+     </a>
+     <a href="healthcare.html">
+      Healthcare
+     </a>
+     <a href="profile.html">
+      Profile
+     </a>
+     <button class="btn-ghost btn-sm" id="logoutBtn">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-head">
+    <div>
+     <div class="portal-kicker">
+      Section 1 &middot; AI Chat
+     </div>
+     <h1 class="portal-h1">
+      Talk to AarogyaMitra.
+     </h1>
+     <p class="portal-muted">
+      Adaptive symptom flow, health education and conversation memory in one place.
+     </p>
+    </div>
+    <button class="btn-ghost" id="clearHistoryBtn">
+     Clear Conversation History
+    </button>
+   </div>
+   <div class="chat-layout">
+    <aside class="chat-side">
+     <h3>
+      Quick questions
+     </h3>
+     <button class="chat-side-btn quick-btn" data-prompt="How can I prevent dengue?">
+      🦟 Prevent dengue
+     </button>
+     <button class="chat-side-btn quick-btn" data-prompt="What are common symptoms of dengue?">
+      🌡 Dengue symptoms
+     </button>
+     <button class="chat-side-btn quick-btn" data-prompt="When should I seek urgent medical care?">
+      🚨 Warning signs
+     </button>
+     <button class="chat-side-btn quick-btn" data-prompt="What should I know about vaccination?">
+      💉 Vaccination
+     </button>
+     <div class="chat-side-note">
+      <strong>
+       Adaptive Symptom Flow
+      </strong>
+      <br/>
+      AarogyaMitra uses previous answers to choose the next useful question instead of repeating a fixed questionnaire.
+     </div>
+    </aside>
+    <section class="chat-panel">
+     <div class="chat-box" id="chatBox">
+     </div>
+     <div class="quick-prompts">
+      <button class="quick-btn" data-prompt="I have fever and headache.">
+       Fever + headache
+      </button>
+      <button class="quick-btn" data-prompt="I have a cough for three days.">
+       Cough for 3 days
+      </button>
+      <button class="quick-btn" data-prompt="Find a doctor near Pune.">
+       Doctor near Pune
+      </button>
+     </div>
+     <div class="chat-compose">
+      <textarea aria-label="Message AarogyaMitra" id="chatInput" placeholder="Ask about symptoms, prevention, vaccination, or healthcare..." rows="2"></textarea>
+      <button class="btn-ghost btn-sm" id="voiceInputBtn" title="Voice input" type="button">
+       🎤
+      </button>
+      <button class="btn-ghost btn-sm" id="readAloudBtn" title="Read latest answer aloud" type="button">
+       🔊
+      </button>
+      <button class="btn-primary" id="sendBtn">
+       Send
+      </button>
+     </div>
+     <div class="portal-muted" style="font-size:.75rem;margin-top:6px">
+      Voice features use your browser speech support when available.
+     </div>
+    </section>
+   </div>
+  </main>
+  <script src="portal.js">
+  </script>
+  <script src="chat.js?v=15">
+  </script>
+  <script src="view-more.js?v=20">
+  </script>
+ </body>
+</html>

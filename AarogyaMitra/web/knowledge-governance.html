@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Knowledge Governance &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <div class="nav-logo">
+     <img alt="" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </div>
+    <div class="portal-links">
+     <a href="admin.html">
+      Admin
+     </a>
+     <a href="admin-population.html">
+      Population
+     </a>
+     <button class="btn-ghost btn-sm" id="logout">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    📚 Knowledge Governance
+   </div>
+   <h1 class="portal-h1">
+    Trusted source registry.
+   </h1>
+   <p class="portal-muted">
+    Review source scope, status and versioning. Retrieval only uses active, relevant sources.
+   </p>
+   <div class="portal-card" id="status" style="margin-top:18px">
+    Loading sources&hellip;
+   </div>
+   <div class="signal-list" id="sources" style="margin-top:18px">
+   </div>
+  </main>
+  <script src="knowledge-governance.js?v=24">
+  </script>
+ </body>
+</html>

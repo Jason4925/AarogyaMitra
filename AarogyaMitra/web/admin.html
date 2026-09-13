@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Admin Dashboard &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <div aria-label="AarogyaMitra Admin" class="nav-logo">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </div>
+    <div class="portal-links">
+     <span class="admin-chip">
+      ADMIN
+     </span>
+     <a href="admin-population.html">
+      Population Command Center
+     </a>
+     <a href="admin-redteam.html">
+      AI Red-Team Lab
+     </a>
+     <a href="knowledge-governance.html">
+      Knowledge Governance
+     </a>
+     <a href="admin-clinical-safety.html">
+      Clinical Safety
+     </a>
+     <span class="status-live" id="realtimeStatus">
+      <span class="status-dot-small">
+      </span>
+      Live monitoring
+     </span>
+     <button class="btn-ghost btn-sm" id="adminLogout">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-head">
+    <div>
+     <div class="portal-kicker">
+      Team Backend &middot; Restricted
+     </div>
+     <h1 class="portal-h1">
+      Command Center.
+     </h1>
+     <p class="portal-muted">
+      Users, AI quality, safety events, emergency monitoring and health reports.
+     </p>
+    </div>
+    <button class="btn-ghost" id="refreshAdmin">
+     &orarr; Refresh
+    </button>
+   </div>
+   <div class="portal-muted" id="adminDataStatus" style="margin:8px 0 18px">
+    Loading administrator data&hellip;
+   </div>
+   <section>
+    <div class="portal-kicker">
+     AI Performance &amp; Safety
+    </div>
+    <h2 class="portal-h1" style="font-size:2rem;margin-top:4px">
+     Monitor the AI, not just the users.
+    </h2>
+    <div class="ai-performance-grid">
+     <div class="ai-metric">
+      <span>
+       Total conversations
+      </span>
+      <strong id="aiConversations">
+       0
+      </strong>
+     </div>
+     <div class="ai-metric">
+      <span>
+       Assessment completion
+      </span>
+      <strong id="aiCompletion">
+       0%
+      </strong>
+     </div>
+     <div class="ai-metric">
+      <span>
+       Fallback responses
+      </span>
+      <strong id="aiFallback">
+       0%
+      </strong>
+     </div>
+     <div class="ai-metric">
+      <span>
+       User corrections
+      </span>
+      <strong id="aiCorrections">
+       0%
+      </strong>
+     </div>
+     <div class="ai-metric">
+      <span>
+       Safety escalations
+      </span>
+      <strong id="aiEscalations">
+       0
+      </strong>
+     </div>
+     <div class="ai-metric">
+      <span>
+       Uncertain responses
+      </span>
+      <strong id="aiUncertain">
+       0
+      </strong>
+     </div>
+    </div>
+   </section>
+   <section class="portal-card readiness-panel" style="margin-top:22px">
+    <div class="worker-toolbar">
+     <div>
+      <div class="portal-kicker">
+       🧠 Intelligence
+      </div>
+      <h2 style="font-family:var(--fnt-d);font-size:1.8rem;margin:4px 0">
+       Product Intelligence
+      </h2>
+      <p class="portal-muted">
+       Operational maturity of AarogyaMitra's intelligence layer.
+      </p>
+     </div>
+     <span class="status-live" id="intelligenceReadiness">
+      Checking&hellip;
+     </span>
+    </div>
+    <div class="readiness-grid" id="intelligenceGrid">
+    </div>
+   </section>
+   <section class="portal-card readiness-panel" style="margin-top:22px">
+    <div class="worker-toolbar">
+     <div>
+      <div class="portal-kicker">
+       🧾 Evidence &amp; Scale
+      </div>
+      <h2 style="font-family:var(--fnt-d);font-size:1.8rem;margin:4px 0">
+       Clinical &amp; deployment readiness
+      </h2>
+      <p class="portal-muted">
+       Track evidence, governance, interoperability and scale-readiness milestones.
+      </p>
+     </div>
+     <span class="status-live" id="evidenceReadiness">
+      Checking&hellip;
+     </span>
+    </div>
+    <div class="readiness-grid" id="evidenceGrid">
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="worker-toolbar">
+     <div>
+      <div class="portal-kicker">
+       🔐 Security posture
+      </div>
+      <h2 style="font-family:var(--fnt-d);font-size:1.8rem;margin:4px 0">
+       Operational security
+      </h2>
+     </div>
+    </div>
+    <div class="portal-muted" id="securityPosture" style="margin-top:10px">
+     Checking security posture&hellip;
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="worker-toolbar">
+     <div>
+      <div class="portal-kicker">
+       Database
+      </div>
+      <h2 style="font-family:var(--fnt-d);font-size:1.8rem;margin:4px 0">
+       Persistence health
+      </h2>
+     </div>
+     <span class="status-live" id="dbStatus">
+      Checking&hellip;
+     </span>
+    </div>
+    <div class="portal-muted" id="dbCounts" style="margin-top:10px">
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="worker-toolbar">
+     <div>
+      <div class="portal-kicker">
+       ⚠️ AI Safety Events
+      </div>
+      <h2 style="font-family:var(--fnt-d);font-size:1.8rem;margin:4px 0 0">
+       Safety signal monitor
+      </h2>
+     </div>
+     <span class="status-live">
+      <span class="status-dot-small">
+      </span>
+      Realtime
+     </span>
+    </div>
+    <div class="ai-safety-grid">
+     <div class="safety-event">
+      <span>
+       Emergency detected
+      </span>
+      <strong id="safeEmergency">
+       0
+      </strong>
+     </div>
+     <div class="safety-event">
+      <span>
+       Low confidence
+      </span>
+      <strong id="safeLowConfidence">
+       0
+      </strong>
+     </div>
+     <div class="safety-event">
+      <span>
+       Unsupported question
+      </span>
+      <strong id="safeUnsupported">
+       0
+      </strong>
+     </div>
+     <div class="safety-event">
+      <span>
+       Human escalation
+      </span>
+      <strong id="safeHuman">
+       0
+      </strong>
+     </div>
+     <div class="safety-event">
+      <span>
+       API failure
+      </span>
+      <strong id="safeApi">
+       0
+      </strong>
+     </div>
+    </div>
+   </section>
+   <div class="analytics-grid" style="margin-top:22px">
+    <div class="analytics-card">
+     <div class="stat-label">
+      Registered users
+     </div>
+     <div class="stat-value" id="userCount">
+      0
+     </div>
+    </div>
+    <div class="analytics-card">
+     <div class="stat-label">
+      Conversation messages
+     </div>
+     <div class="stat-value" id="messageCount">
+      0
+     </div>
+    </div>
+    <div class="analytics-card">
+     <div class="stat-label">
+      Health reports
+     </div>
+     <div class="stat-value" id="reportCount">
+      0
+     </div>
+    </div>
+    <div class="analytics-card">
+     <div class="stat-label">
+      Emergency events
+     </div>
+     <div class="stat-value" id="eventCount">
+      0
+     </div>
+    </div>
+    <div class="analytics-card">
+     <div class="stat-label">
+      Successful calls
+     </div>
+     <div class="stat-value" id="successCalls">
+      0
+     </div>
+    </div>
+    <div class="analytics-card">
+     <div class="stat-label">
+      Failed calls
+     </div>
+     <div class="stat-value" id="failedCalls">
+      0
+     </div>
+    </div>
+   </div>
+   <section class="portal-card" style="margin-bottom:22px">
+    <div class="portal-kicker">
+     Trends
+    </div>
+    <h2 style="font-family:var(--fnt-d);font-size:1.8rem;margin-bottom:14px">
+     Emergency call performance
+    </h2>
+    <div class="bar-row">
+     <div class="bar-label">
+      <span>
+       Successful
+      </span>
+      <strong id="successPct">
+       0%
+      </strong>
+     </div>
+     <div class="bar-track">
+      <div class="bar-fill" id="successBar" style="width:0%">
+      </div>
+     </div>
+    </div>
+    <div class="bar-row">
+     <div class="bar-label">
+      <span>
+       Failed
+      </span>
+      <strong id="failedPct">
+       0%
+      </strong>
+     </div>
+     <div class="bar-track">
+      <div class="bar-fill" id="failedBar" style="width:0%">
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="worker-toolbar">
+     <div>
+      <div class="portal-kicker">
+       🧪 AI Benchmark
+      </div>
+      <h2 style="font-family:var(--fnt-d);font-size:1.8rem;margin:4px 0">
+       Engineering safety benchmark
+      </h2>
+      <p class="portal-muted">
+       Run a repeatable suite for emergency handling, uncertainty and unsafe-output prevention.
+      </p>
+     </div>
+     <button class="btn-primary btn-sm" id="runBenchmark">
+      Run Benchmark
+     </button>
+    </div>
+    <div class="portal-muted" id="benchmarkSummary" style="margin-top:12px">
+     Not run yet.
+    </div>
+    <div class="signal-list" id="benchmarkResults" style="margin-top:14px">
+    </div>
+   </section>
+   <section class="admin-section" style="margin-top:34px">
+    <div class="worker-toolbar">
+     <div>
+      <div class="portal-kicker">
+       🧪 AI Evaluation Lab
+      </div>
+      <h2 style="font-family:var(--fnt-d);font-size:1.8rem">
+       Safety &amp; response testing
+      </h2>
+     </div>
+     <button class="btn-primary btn-sm" id="runAllEvaluations">
+      Run All Tests
+     </button>
+    </div>
+    <div class="portal-muted" id="evaluationSummary" style="margin-bottom:12px">
+    </div>
+    <div class="table-wrap">
+     <table class="portal-table">
+      <thead>
+       <tr>
+        <th>
+         Scenario
+        </th>
+        <th>
+         Result
+        </th>
+        <th>
+         Issues
+        </th>
+        <th>
+         Time
+        </th>
+       </tr>
+      </thead>
+      <tbody id="evaluationsTable">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="admin-section" style="margin-top:34px">
+    <div class="worker-toolbar">
+     <div>
+      <div class="portal-kicker">
+       🌍 Population Health
+      </div>
+      <h2 style="font-family:var(--fnt-d);font-size:1.8rem">
+       Aggregated trends
+      </h2>
+     </div>
+    </div>
+    <div class="analytics-grid" id="populationCards">
+    </div>
+    <div class="table-wrap">
+     <table class="portal-table">
+      <thead>
+       <tr>
+        <th>
+         Top symptom
+        </th>
+        <th>
+         Reports
+        </th>
+       </tr>
+      </thead>
+      <tbody id="symptomTable">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="admin-section" style="margin-top:34px">
+    <div class="worker-toolbar">
+     <div>
+      <div class="portal-kicker">
+       🦠 Early Warning
+      </div>
+      <h2 style="font-family:var(--fnt-d);font-size:1.8rem">
+       Potential outbreak signals
+      </h2>
+     </div>
+    </div>
+    <div class="signal-list" id="outbreakSignals">
+    </div>
+   </section>
+   <section class="admin-section">
+    <div class="worker-toolbar">
+     <h2 style="font-family:var(--fnt-d);font-size:1.8rem">
+      Users
+     </h2>
+     <div style="display:flex;gap:10px;align-items:center">
+      <input id="userSearch" placeholder="Search name or email"/>
+     </div>
+    </div>
+    <div class="table-wrap">
+     <table class="portal-table">
+      <thead>
+       <tr>
+        <th>
+         Name
+        </th>
+        <th>
+         Email
+        </th>
+        <th>
+         Phone
+        </th>
+        <th>
+         Created
+        </th>
+        <th>
+        </th>
+       </tr>
+      </thead>
+      <tbody id="usersTable">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="admin-section" style="margin-top:34px">
+    <div class="worker-toolbar">
+     <h2 style="font-family:var(--fnt-d);font-size:1.8rem">
+      Recent AI Safety Events
+     </h2>
+    </div>
+    <div class="table-wrap">
+     <table class="portal-table">
+      <thead>
+       <tr>
+        <th>
+         Time
+        </th>
+        <th>
+         Event
+        </th>
+        <th>
+         User
+        </th>
+        <th>
+         Details
+        </th>
+       </tr>
+      </thead>
+      <tbody id="aiEventsTable">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="admin-section" style="margin-top:34px">
+    <div class="worker-toolbar">
+     <h2 style="font-family:var(--fnt-d);font-size:1.8rem">
+      Emergency Monitoring
+     </h2>
+    </div>
+    <div class="table-wrap">
+     <table class="portal-table">
+      <thead>
+       <tr>
+        <th>
+         Time
+        </th>
+        <th>
+         User
+        </th>
+        <th>
+         Channel
+        </th>
+        <th>
+         Reason
+        </th>
+        <th>
+         Status
+        </th>
+        <th>
+         SID
+        </th>
+       </tr>
+      </thead>
+      <tbody id="eventsTable">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="admin-section" style="margin-top:34px">
+    <div class="worker-toolbar">
+     <h2 style="font-family:var(--fnt-d);font-size:1.8rem">
+      Audit Log
+     </h2>
+    </div>
+    <div class="table-wrap">
+     <table class="portal-table">
+      <thead>
+       <tr>
+        <th>
+         Time
+        </th>
+        <th>
+         Action
+        </th>
+        <th>
+         Resource
+        </th>
+        <th>
+         Result
+        </th>
+       </tr>
+      </thead>
+      <tbody id="auditTable">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="admin-section" style="margin-top:34px">
+    <div class="worker-toolbar">
+     <h2 style="font-family:var(--fnt-d);font-size:1.8rem">
+      Clinical Safety Governance
+     </h2>
+     <a class="btn-ghost btn-sm" href="admin-clinical-safety.html">
+      Open Governance
+     </a>
+    </div>
+   </section>
+   <section class="admin-section" style="margin-top:34px">
+    <div class="worker-toolbar">
+     <h2 style="font-family:var(--fnt-d);font-size:1.8rem">
+      Generated Reports
+     </h2>
+    </div>
+    <div class="table-wrap">
+     <table class="portal-table">
+      <thead>
+       <tr>
+        <th>
+         User
+        </th>
+        <th>
+         Problem
+        </th>
+        <th>
+         Severity
+        </th>
+        <th>
+         Created
+        </th>
+       </tr>
+      </thead>
+      <tbody id="reportsTable">
+      </tbody>
+     </table>
+    </div>
+   </section>
+  </main>
+  <script src="portal.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+  </script>
+  <script src="realtime.js">
+  </script>
+  <script src="admin.js?v=15">
+  </script>
+  <script src="view-more.js?v=20">
+  </script>
+ </body>
+</html>

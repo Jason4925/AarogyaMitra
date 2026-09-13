@@ -1,0 +1,15 @@
+fastapi>=0.116
+uvicorn[standard]>=0.35
+pydantic>=2.11
+python-multipart>=0.0.20
+requests>=2.32
+googlemaps>=4.10
+twilio>=9.7
+langchain>=0.3
+langchain-groq>=0.3
+langgraph>=0.6
+SQLAlchemy>=2.0
+psycopg[binary]>=3.2
+PyJWT>=2.10
+supabase>=2.15
+python-dotenv>=1.1

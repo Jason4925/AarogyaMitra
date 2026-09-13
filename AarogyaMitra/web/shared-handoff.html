@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Shared Handoff &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    AarogyaMitra Secure Share
+   </div>
+   <h1 class="portal-h1">
+    View shared handoff
+   </h1>
+   <section class="portal-card" style="max-width:760px;margin-top:22px">
+    <input class="field-input" id="token" placeholder="Access token"/>
+    <input class="field-input" id="code" placeholder="6-digit access code" style="margin-top:10px"/>
+    <button class="btn-primary" id="view" style="margin-top:12px">
+     View Handoff
+    </button>
+    <div id="out" style="margin-top:18px">
+    </div>
+   </section>
+   <script src="config.js">
+   </script>
+   <script>
+    const API=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';const esc=v=>{const d=document.createElement('div');d.textContent=String(v??'');return d.innerHTML};document.getElementById('view').onclick=async()=>{try{const r=await fetch(API+'/public/handoff/access',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:token.value.trim(),access_code:code.value.trim()})});const d=await r.json();if(!r.ok)throw Error(d.detail||'Invalid share');const h=d.handoff||{};out.innerHTML=`<section class="portal-card"><div class="portal-kicker">Read-only clinical discussion summary</div><h2>${esc(h.chief_concern||'AarogyaMitra Handoff')}</h2><p><strong>Urgency:</strong> ${esc(h.risk?.level||'—')}</p><p><strong>Duration:</strong> ${esc(h.duration||'—')} · <strong>Severity:</strong> ${esc(h.severity||'—')}/10</p><h3>Symptoms</h3><p>${esc((h.associated_symptoms||[]).join(', ')||'None reported')}</p><h3>Relevant history</h3><p>${esc((h.relevant_history||[]).join(', ')||'None reported')}</p><h3>Next step</h3><p>${esc(h.next_steps||'—')}</p><p class="portal-muted">Read-only access. Do not use this summary as a diagnosis.</p></section>`}catch(e){out.innerHTML='<div class="security-message error">'+esc(e.message)+'</div>'}}
+   </script>
+  </main>
+ </body>
+</html>

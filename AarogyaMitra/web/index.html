@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="AarogyaMitra — AI-powered health awareness, assessment, healthcare navigation and personal health management."
+    >
+
+    <meta
+        name="keywords"
+        content="AarogyaMitra, AI healthcare, health assessment, health awareness, vaccination, healthcare finder, health records"
+    >
+
+    <title>AarogyaMitra — Intelligent Health Companion</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300,400,500,600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/aarogyamitra-logo.png"
+    >
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav class="navbar" id="navbar">
+
+    <div class="nav-inner">
+
+        <a class="nav-logo" href="index.html">
+            <img
+                src="assets/aarogyamitra-logo.png"
+                alt="AarogyaMitra logo"
+                class="brand-logo-img"
+            >
+
+            <img
+                src="assets/aarogyamitra-text.png"
+                alt="AarogyaMitra"
+                class="brand-name-img"
+            >
+        </a>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="#about">About</a>
+
+            <a href="#features">Features</a>
+
+            <a href="#systems">Health Systems</a>
+
+            <a href="#how-it-works">How It Works</a>
+
+            <a class="nav-admin" href="login.html">
+                Login &nearrow;
+            </a>
+
+            <a class="nav-admin" href="admin-login.html">
+                Admin &nearrow;
+            </a>
+
+            <a class="nav-cta" href="signup.html">
+                Create Account
+            </a>
+
+        </div>
+
+        <button
+            class="nav-ham"
+            id="hamburger"
+            aria-label="Toggle navigation"
+            onclick="toggleNav()"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+</nav>
+
+
+<div class="page active" id="page-landing">
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-bg">
+
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+
+        <div class="hero-grid"></div>
+
+    </div>
+
+
+    <div class="hero-inner">
+
+        <div class="hero-text">
+
+            <div class="hero-pill">
+                <span class="pill-dot"></span>
+                AI-Powered Intelligent Health Companion
+            </div>
+
+
+            <h1 class="hero-h1">
+
+                Understand Your Health.
+                <br>
+
+                <em>
+                    Make Better Decisions.
+                </em>
+
+                <br>
+
+                Stay Informed.
+
+            </h1>
+
+
+            <p class="hero-desc">
+
+                AarogyaMitra brings AI health conversations, structured
+                assessments, risk awareness, healthcare navigation,
+                vaccination guidance, personal health records and
+                professional care pathways together in one platform.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a class="btn-primary" href="signup.html">
+
+                    Get Started
+
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                    >
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+
+                </a>
+
+
+                <a class="btn-outline" href="#features">
+                    Explore AarogyaMitra
+                </a>
+
+            </div>
+
+
+            <div class="hero-trust">
+
+                <span>&checkmark; AI Health Assistant</span>
+
+                <span>&checkmark; Risk-Aware Guidance</span>
+
+                <span>&checkmark; Healthcare Navigation</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-cards">
+
+            <div class="hc-main">
+
+                <div class="hc-bar green-bar"></div>
+
+                <div class="hc-body">
+
+                    <span class="hc-icon">
+                        🧠
+                    </span>
+
+                    <div>
+
+                        <div class="hc-name">
+                            AI Health Intelligence
+                        </div>
+
+                        <div class="hc-sub">
+                            Understand symptoms and health concerns
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hc-tags">
+
+                    <span>
+                        AI Chat
+                    </span>
+
+                    <span>
+                        Risk Analysis
+                    </span>
+
+                    <span>
+                        Care Plan
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="hc-float hcf-top">
+
+                <div class="hc-bar blue-bar"></div>
+
+                <div class="hc-body sm">
+
+                    <span class="hc-icon sm">
+                        📍
+                    </span>
+
+                    <div>
+
+                        <div class="hc-name sm">
+                            Healthcare Routing
+                        </div>
+
+                        <div class="hc-sub sm">
+                            Find relevant nearby care
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hc-float hcf-btm">
+
+                <div class="hc-bar teal-bar"></div>
+
+                <div class="hc-body sm">
+
+                    <span class="hc-icon sm">
+                        🛡
+                    </span>
+
+                    <div>
+
+                        <div class="hc-name sm">
+                            Safety & Privacy
+                        </div>
+
+                        <div class="hc-sub sm">
+                            Consent-aware health data controls
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hc-pip pip-a">
+                ⚡ Personalized Health Journey
+            </div>
+
+
+            <div class="hc-pip pip-b">
+                🔐 Privacy & Security Controls
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-scroll">
+
+        <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+        >
+            <path d="M12 5v14"></path>
+            <path d="M5 12l7 7 7-7"></path>
+        </svg>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="section sec-white" id="about">
+
+    <div class="sec-inner">
+
+        <div class="sec-label">
+            Why AarogyaMitra
+        </div>
+
+
+        <h2 class="sec-h2">
+
+            From a health concern
+
+            <br>
+
+            <em>
+                to a clearer care journey.
+            </em>
+
+        </h2>
+
+
+        <p class="sec-body">
+
+            AarogyaMitra is designed to help people understand
+            health information, identify situations that may need
+            professional attention, access relevant healthcare
+            services and maintain a continuous view of their
+            health journey.
+
+        </p>
+
+
+        <div class="grid-4">
+
+            <div class="feature-card fc-green">
+
+                <div class="fc-num">
+                    01
+                </div>
+
+                <h3>
+                    AI Health Conversation
+                </h3>
+
+                <p>
+                    Ask health questions naturally and receive
+                    context-aware guidance with adaptive follow-up
+                    questions.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-blue">
+
+                <div class="fc-num">
+                    02
+                </div>
+
+                <h3>
+                    Risk-Aware Assessment
+                </h3>
+
+                <p>
+                    Structured assessments combine symptoms,
+                    history and safety checks to identify potential
+                    warning signs.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-teal">
+
+                <div class="fc-num">
+                    03
+                </div>
+
+                <h3>
+                    Personal Health Journey
+                </h3>
+
+                <p>
+                    Keep assessments, measurements, reports,
+                    follow-ups and health information together
+                    over time.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-amber">
+
+                <div class="fc-num">
+                    04
+                </div>
+
+                <h3>
+                    Connected Care
+                </h3>
+
+                <p>
+                    Move from AI guidance to healthcare discovery,
+                    professional handoff and appropriate care
+                    pathways when needed.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CORE FEATURES
+========================================================= -->
+
+<section class="section sec-ivory" id="features">
+
+    <div class="sec-inner">
+
+        <div class="sec-label">
+            AarogyaMitra Platform
+        </div>
+
+
+        <h2 class="sec-h2">
+
+            Everything you need
+
+            <br>
+
+            <em>
+                for a smarter health journey.
+            </em>
+
+        </h2>
+
+
+        <div class="grid-4">
+
+            <div class="feature-card fc-green">
+
+                <div class="fc-num">
+                    AI
+                </div>
+
+                <h3>
+                    AI Health Chat
+                </h3>
+
+                <p>
+                    Conversational health assistance with
+                    adaptive symptoms and contextual follow-up.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-blue">
+
+                <div class="fc-num">
+                    02
+                </div>
+
+                <h3>
+                    Health Assessment
+                </h3>
+
+                <p>
+                    Structured assessment with risk analysis,
+                    explanations and personalized next steps.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-teal">
+
+                <div class="fc-num">
+                    03
+                </div>
+
+                <h3>
+                    Health Reports
+                </h3>
+
+                <p>
+                    Review assessment results, patient summaries,
+                    health information and recommended next steps.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-amber">
+
+                <div class="fc-num">
+                    04
+                </div>
+
+                <h3>
+                    Care Plans
+                </h3>
+
+                <p>
+                    Follow risk-aware care pathways designed to
+                    connect health awareness with appropriate care.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-green">
+
+                <div class="fc-num">
+                    05
+                </div>
+
+                <h3>
+                    Healthcare Finder
+                </h3>
+
+                <p>
+                    Discover nearby healthcare options and route
+                    users toward relevant professional services.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-blue">
+
+                <div class="fc-num">
+                    06
+                </div>
+
+                <h3>
+                    Vaccination Guidance
+                </h3>
+
+                <p>
+                    Check milestone-based vaccination information
+                    using profile and date-of-birth information.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-teal">
+
+                <div class="fc-num">
+                    07
+                </div>
+
+                <h3>
+                    Health Records
+                </h3>
+
+                <p>
+                    Maintain a longitudinal view of assessments,
+                    health trends, timelines and follow-ups.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-amber">
+
+                <div class="fc-num">
+                    08
+                </div>
+
+                <h3>
+                    Health Measurements
+                </h3>
+
+                <p>
+                    Track measurements such as blood pressure,
+                    glucose, temperature, oxygen saturation,
+                    heart rate and weight.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ADVANCED FEATURES
+========================================================= -->
+
+<section class="section sec-white">
+
+    <div class="sec-inner">
+
+        <div class="sec-label">
+            Beyond Basic Health Assistance
+        </div>
+
+
+        <h2 class="sec-h2">
+
+            Built for the complete
+
+            <br>
+
+            <em>
+                health information journey.
+            </em>
+
+        </h2>
+
+
+        <div class="grid-3">
+
+            <div class="sys-card sys-allo">
+
+                <div class="sys-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    AI-to-Doctor Handoff
+                </h3>
+
+                <p>
+                    Prepare a structured summary containing
+                    symptoms, history, concerns, risk information,
+                    timeline and questions for a healthcare
+                    professional.
+                </p>
+
+                <div class="sys-pills">
+
+                    <span class="sys-pill">
+                        Patient Summary
+                    </span>
+
+                    <span class="sys-pill">
+                        Timeline
+                    </span>
+
+                    <span class="sys-pill">
+                        Risk
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="sys-card sys-ayur">
+
+                <div class="sys-icon">
+                    📎
+                </div>
+
+                <h3>
+                    Health Documents
+                </h3>
+
+                <p>
+                    Upload health documents and review extracted
+                    information before confirming it as part of
+                    your health record.
+                </p>
+
+                <div class="sys-pills">
+
+                    <span class="sys-pill">
+                        Reports
+                    </span>
+
+                    <span class="sys-pill">
+                        Extraction
+                    </span>
+
+                    <span class="sys-pill">
+                        Review
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="sys-card sys-homeo">
+
+                <div class="sys-icon">
+                    👥
+                </div>
+
+                <h3>
+                    Caregiver Support
+                </h3>
+
+                <p>
+                    Configure optional, consent-based emergency
+                    and follow-up support for trusted caregivers.
+                </p>
+
+                <div class="sys-pills">
+
+                    <span class="sys-pill">
+                        Consent
+                    </span>
+
+                    <span class="sys-pill">
+                        Emergency
+                    </span>
+
+                    <span class="sys-pill">
+                        Follow-Up
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="sys-card sys-allo">
+
+                <div class="sys-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Security Center
+                </h3>
+
+                <p>
+                    Manage personal-data controls, consent,
+                    memory and account security from one place.
+                </p>
+
+                <div class="sys-pills">
+
+                    <span class="sys-pill">
+                        Consent
+                    </span>
+
+                    <span class="sys-pill">
+                        Privacy
+                    </span>
+
+                    <span class="sys-pill">
+                        Security
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="sys-card sys-ayur">
+
+                <div class="sys-icon">
+                    💊
+                </div>
+
+                <h3>
+                    Medication Safety
+                </h3>
+
+                <p>
+                    Review conservative safety prompts around
+                    clinician-prescribed medicines and medication
+                    information.
+                </p>
+
+                <div class="sys-pills">
+
+                    <span class="sys-pill">
+                        Safety
+                    </span>
+
+                    <span class="sys-pill">
+                        Medicine List
+                    </span>
+
+                    <span class="sys-pill">
+                        Alerts
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="sys-card sys-homeo">
+
+                <div class="sys-icon">
+                    🦠
+                </div>
+
+                <h3>
+                    Public Health Center
+                </h3>
+
+                <p>
+                    Access disease awareness, prevention,
+                    vaccination information and urgent warning-sign
+                    guidance.
+                </p>
+
+                <div class="sys-pills">
+
+                    <span class="sys-pill">
+                        Awareness
+                    </span>
+
+                    <span class="sys-pill">
+                        Prevention
+                    </span>
+
+                    <span class="sys-pill">
+                        Alerts
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HEALTH SYSTEMS
+========================================================= -->
+
+<section class="section sec-ivory" id="systems">
+
+    <div class="sec-inner">
+
+        <div class="sec-label">
+            Health Information Perspectives
+        </div>
+
+
+        <h2 class="sec-h2">
+
+            Multiple perspectives.
+
+            <br>
+
+            <em>
+                One informed conversation.
+            </em>
+
+        </h2>
+
+
+        <p class="sec-body">
+
+            AarogyaMitra can present health information from
+            different medical perspectives while keeping safety,
+            professional care and informed decision-making at the
+            center.
+
+        </p>
+
+
+        <div class="grid-3">
+
+            <div class="sys-card sys-allo">
+
+                <div class="sys-icon">
+                    💊
+                </div>
+
+                <h3>
+                    Allopathy
+                </h3>
+
+                <p>
+                    Modern evidence-based medical information,
+                    investigations, medications and lifestyle
+                    considerations.
+                </p>
+
+                <div class="sys-pills">
+
+                    <span class="sys-pill">
+                        Medicines
+                    </span>
+
+                    <span class="sys-pill">
+                        Investigations
+                    </span>
+
+                    <span class="sys-pill">
+                        Lifestyle
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="sys-card sys-ayur">
+
+                <div class="sys-icon">
+                    🌿
+                </div>
+
+                <h3>
+                    Ayurveda
+                </h3>
+
+                <p>
+                    Traditional wellness perspectives involving
+                    diet, lifestyle and Ayurvedic concepts.
+                </p>
+
+                <div class="sys-pills">
+
+                    <span class="sys-pill">
+                        Lifestyle
+                    </span>
+
+                    <span class="sys-pill">
+                        Diet
+                    </span>
+
+                    <span class="sys-pill">
+                        Traditional Care
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="sys-card sys-homeo">
+
+                <div class="sys-icon">
+                    🔬
+                </div>
+
+                <h3>
+                    Homeopathy
+                </h3>
+
+                <p>
+                    Homeopathic information can be presented as
+                    a complementary perspective while encouraging
+                    appropriate professional medical care.
+                </p>
+
+                <div class="sys-pills">
+
+                    <span class="sys-pill">
+                        Remedies
+                    </span>
+
+                    <span class="sys-pill">
+                        Information
+                    </span>
+
+                    <span class="sys-pill">
+                        Professional Care
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+========================================================= -->
+
+<section class="section sec-white" id="how-it-works">
+
+    <div class="sec-inner">
+
+        <div class="sec-label">
+            How AarogyaMitra Works
+        </div>
+
+
+        <h2 class="sec-h2">
+
+            From concern
+
+            <br>
+
+            <em>
+                to appropriate next steps.
+            </em>
+
+        </h2>
+
+
+        <div class="process-steps">
+
+            <div class="proc-step">
+
+                <div class="proc-num">
+                    1
+                </div>
+
+                <h4>
+                    Tell Us
+                </h4>
+
+                <p>
+                    Describe your health concern or start a
+                    conversation with the AI assistant.
+                </p>
+
+            </div>
+
+
+            <div class="proc-step">
+
+                <div class="proc-num">
+                    2
+                </div>
+
+                <h4>
+                    Understand
+                </h4>
+
+                <p>
+                    Answer adaptive questions about symptoms,
+                    duration, severity and relevant history.
+                </p>
+
+            </div>
+
+
+            <div class="proc-step">
+
+                <div class="proc-num">
+                    3
+                </div>
+
+                <h4>
+                    Assess
+                </h4>
+
+                <p>
+                    AarogyaMitra evaluates the information using
+                    structured health and safety logic.
+                </p>
+
+            </div>
+
+
+            <div class="proc-step">
+
+                <div class="proc-num">
+                    4
+                </div>
+
+                <h4>
+                    Plan
+                </h4>
+
+                <p>
+                    Receive a risk-aware care pathway, health
+                    information and suggested next steps.
+                </p>
+
+            </div>
+
+
+            <div class="proc-step">
+
+                <div class="proc-num">
+                    5
+                </div>
+
+                <h4>
+                    Continue
+                </h4>
+
+                <p>
+                    Track your health journey, follow-ups,
+                    measurements and records over time.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SAFETY
+========================================================= -->
+
+<section class="section sec-ivory">
+
+    <div class="sec-inner">
+
+        <div class="sec-label">
+            Safety First
+        </div>
+
+
+        <h2 class="sec-h2">
+
+            AI should support
+
+            <br>
+
+            <em>
+                better healthcare decisions.
+            </em>
+
+        </h2>
+
+
+        <div class="grid-4">
+
+            <div class="feature-card fc-green">
+
+                <div class="fc-num">
+                    01
+                </div>
+
+                <h3>
+                    Red Flag Detection
+                </h3>
+
+                <p>
+                    Potentially serious symptom combinations can
+                    be identified and escalated with urgent
+                    guidance.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-blue">
+
+                <div class="fc-num">
+                    02
+                </div>
+
+                <h3>
+                    Human Escalation
+                </h3>
+
+                <p>
+                    AarogyaMitra is designed to direct users toward
+                    appropriate professional care when required.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-teal">
+
+                <div class="fc-num">
+                    03
+                </div>
+
+                <h3>
+                    Consent Controls
+                </h3>
+
+                <p>
+                    Sensitive health workflows include consent-aware
+                    controls for sharing and caregiver support.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card fc-amber">
+
+                <div class="fc-num">
+                    04
+                </div>
+
+                <h3>
+                    Privacy & Security
+                </h3>
+
+                <p>
+                    Users can review privacy and security controls
+                    through the dedicated Security Center.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     USER PORTAL CTA
+========================================================= -->
+
+<section class="cta-section">
+
+    <div class="sec-inner" style="text-align:center">
+
+        <div class="sec-label">
+            Your Health Workspace
+        </div>
+
+
+        <h2 class="sec-h2" style="color:#fff">
+
+            Your health information.
+
+            <br>
+
+            <em style="color:var(--teal-lt)">
+                One connected journey.
+            </em>
+
+        </h2>
+
+
+        <p
+            style="
+                color:rgba(255,255,255,.6);
+                margin-bottom:36px;
+            "
+        >
+            Create an account to access AI chat, assessments,
+            health records, reports, care pathways, healthcare
+            routing, vaccination guidance and more.
+        </p>
+
+
+        <a class="btn-primary" href="signup.html">
+
+            Create Your Account
+
+            <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+            >
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+            </svg>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-logo">
+
+            <img
+                src="assets/aarogyamitra-logo.png"
+                alt="AarogyaMitra"
+                style="height:32px;vertical-align:middle;margin-right:8px;"
+            >
+
+            AarogyaMitra
+
+        </div>
+
+
+        <div class="footer-note">
+
+            AI-powered health awareness and assistance
+
+            <br>
+
+            For informational purposes only
+
+            <br>
+
+            Always consult a licensed healthcare professional for diagnosis, treatment and emergency care
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION SCRIPT
+========================================================= -->
+
+<script>
+
+function toggleNav() {
+
+    const links = document.getElementById("navLinks");
+    const ham = document.getElementById("hamburger");
+
+    if (links) {
+        links.classList.toggle("open");
+    }
+
+    if (ham) {
+        ham.classList.toggle("open");
+    }
+
+}
+
+
+window.addEventListener("scroll", () => {
+
+    const navbar = document.getElementById("navbar");
+
+    if (navbar) {
+
+        navbar.classList.toggle(
+            "scrolled",
+            window.scrollY > 20
+        );
+
+    }
+
+});
+
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        const links = document.getElementById("navLinks");
+        const ham = document.getElementById("hamburger");
+
+        if (links) {
+            links.classList.remove("open");
+        }
+
+        if (ham) {
+            ham.classList.remove("open");
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

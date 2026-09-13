@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Population Health Command Center &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <div class="nav-logo">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </div>
+    <div class="portal-links">
+     <span class="admin-chip">
+      ADMIN
+     </span>
+     <a href="admin.html">
+      Command Center
+     </a>
+     <button class="btn-ghost btn-sm" id="logout">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    📊 Population Health
+   </div>
+   <h1 class="portal-h1">
+    Command Center.
+   </h1>
+   <p class="portal-muted">
+    Aggregated product and public-health signals. These indicators are operational signals, not clinical surveillance conclusions.
+   </p>
+   <div class="portal-card" id="status" style="margin-top:22px">
+    Loading population analytics&hellip;
+   </div>
+   <div class="analytics-grid" id="cards" style="margin-top:18px">
+   </div>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="portal-kicker">
+     Common symptoms
+    </div>
+    <h2 style="font-family:var(--fnt-d);font-size:1.7rem">
+     Top reported symptoms
+    </h2>
+    <div class="table-wrap" style="margin-top:14px">
+     <table class="portal-table">
+      <thead>
+       <tr>
+        <th>
+         Symptom
+        </th>
+        <th>
+         Reports
+        </th>
+        <th>
+         Share of reports
+        </th>
+       </tr>
+      </thead>
+      <tbody id="symptoms">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="portal-kicker">
+     Geographic trends
+    </div>
+    <h2 style="font-family:var(--fnt-d);font-size:1.7rem">
+     Top locations
+    </h2>
+    <div class="table-wrap" style="margin-top:14px">
+     <table class="portal-table">
+      <thead>
+       <tr>
+        <th>
+         Location
+        </th>
+        <th>
+         Records
+        </th>
+       </tr>
+      </thead>
+      <tbody id="locations">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="portal-kicker">
+     🦠 Early warning
+    </div>
+    <h2 style="font-family:var(--fnt-d);font-size:1.7rem">
+     Potential outbreak signals
+    </h2>
+    <p class="portal-muted">
+     Signals are generated from recent symptom clusters and must be reviewed by an appropriate public-health team.
+    </p>
+    <div class="signal-list" id="signals" style="margin-top:14px">
+    </div>
+   </section>
+  </main>
+  <script src="admin-population.js?v=19">
+  </script>
+  <script src="view-more.js?v=20">
+  </script>
+ </body>
+</html>

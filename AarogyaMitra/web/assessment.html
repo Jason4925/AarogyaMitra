@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   AarogyaMitra &mdash; Health Assessment
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=DM+Sans:opsz,wght@9..40,300;400;500;600&amp;display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <div class="page active" id="page-form">
+   <div class="form-page">
+    <div class="form-topbar">
+     <a class="form-logo" href="#" onclick="window.location.href='dashboard.html';return false;">
+      <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+      <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+     </a>
+     <div class="form-progress-bar">
+      <div class="fbar-track">
+       <div class="fbar-fill" id="progressFill" style="width:20%">
+       </div>
+      </div>
+      <div class="fbar-label" id="progressLabel">
+       Step 1 of 5
+      </div>
+     </div>
+     <button class="btn-ghost btn-sm" onclick="window.location.href='dashboard.html'">
+      ✕ Exit
+     </button>
+    </div>
+    <div class="form-body">
+     <div class="step-indicators" id="stepIndicators">
+      <div class="step-ind active" id="sind-1">
+       <div class="step-ind-num">
+        1
+       </div>
+       <div class="step-ind-lbl">
+        Concern
+       </div>
+      </div>
+      <div class="step-connector" id="scon-1">
+      </div>
+      <div class="step-ind" id="sind-2">
+       <div class="step-ind-num">
+        2
+       </div>
+       <div class="step-ind-lbl">
+        Symptoms
+       </div>
+      </div>
+      <div class="step-connector" id="scon-2">
+      </div>
+      <div class="step-ind" id="sind-3">
+       <div class="step-ind-num">
+        3
+       </div>
+       <div class="step-ind-lbl">
+        Profile
+       </div>
+      </div>
+      <div class="step-connector" id="scon-3">
+      </div>
+      <div class="step-ind" id="sind-4">
+       <div class="step-ind-num">
+        4
+       </div>
+       <div class="step-ind-lbl">
+        History
+       </div>
+      </div>
+      <div class="step-connector" id="scon-4">
+      </div>
+      <div class="step-ind" id="sind-5">
+       <div class="step-ind-num">
+        5
+       </div>
+       <div class="step-ind-lbl">
+        Review
+       </div>
+      </div>
+     </div>
+     <main>
+      <!-- Step 1 -->
+      <div class="form-step active" id="step1">
+       <div class="fstep-head">
+        <div class="fstep-tag">
+         Step 1 of 5
+        </div>
+        <h2>
+         What's your main concern?
+        </h2>
+        <p>
+         Describe what you're experiencing in plain language. Be as specific as you can about location, character, and any patterns you've noticed.
+        </p>
+       </div>
+       <div class="fstep-body">
+        <div class="field">
+         <label class="field-label">
+          Describe your main health concern
+          <span class="req">
+           *
+          </span>
+         </label>
+         <textarea class="field-textarea" id="mainProblem" placeholder="e.g. I've had a persistent dull ache in my lower back for the past week, worse in the mornings and after sitting for long periods..." rows="4"></textarea>
+        </div>
+        <div class="field-row">
+         <div class="field">
+          <label class="field-label">
+           How long have you had this?
+           <span class="req">
+            *
+           </span>
+          </label>
+          <div class="rcards">
+           <label class="rcard">
+            <input name="duration" type="radio" value="Less than 24 hours"/>
+            <span>
+             Under 24h
+            </span>
+           </label>
+           <label class="rcard">
+            <input name="duration" type="radio" value="1&ndash;3 days"/>
+            <span>
+             1&ndash;3 days
+            </span>
+           </label>
+           <label class="rcard">
+            <input name="duration" type="radio" value="4&ndash;7 days"/>
+            <span>
+             4&ndash;7 days
+            </span>
+           </label>
+           <label class="rcard">
+            <input name="duration" type="radio" value="1&ndash;2 weeks"/>
+            <span>
+             1&ndash;2 weeks
+            </span>
+           </label>
+           <label class="rcard">
+            <input name="duration" type="radio" value="2&ndash;4 weeks"/>
+            <span>
+             2&ndash;4 weeks
+            </span>
+           </label>
+           <label class="rcard">
+            <input name="duration" type="radio" value="1&ndash;3 months"/>
+            <span>
+             1&ndash;3 months
+            </span>
+           </label>
+           <label class="rcard">
+            <input name="duration" type="radio" value="3+ months"/>
+            <span>
+             3+ months
+            </span>
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="field">
+         <label class="field-label">
+          Severity (1 = mild, 10 = severe)
+          <span class="req">
+           *
+          </span>
+         </label>
+         <div class="severity-wrap">
+          <div class="severity-value-display" id="sevDisplay">
+           5
+          </div>
+          <input class="severity-slider" id="severity" max="10" min="1" style="--val:44.4%" type="range" value="5"/>
+          <div class="severity-labels">
+           <span>
+            1 &mdash; Mild
+           </span>
+           <span>
+            5 &mdash; Moderate
+           </span>
+           <span>
+            10 &mdash; Severe
+           </span>
+          </div>
+          <div class="severity-desc" id="sevDesc">
+           Noticeable but manageable
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="fstep-foot">
+        <span>
+        </span>
+        <button class="btn-primary" onclick="goNext(1)">
+         Continue
+         <svg fill="none" height="15" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="15">
+          <path d="M5 12h14M12 5l7 7-7 7">
+          </path>
+         </svg>
+        </button>
+       </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="form-step" id="step2">
+       <div class="fstep-head">
+        <div class="fstep-tag">
+         Step 2 of 5
+        </div>
+        <h2>
+         Select your symptoms
+        </h2>
+        <p>
+         Choose all symptoms you are currently experiencing. Selecting more symptoms helps each medical system provide more personalised insights.
+        </p>
+       </div>
+       <div class="fstep-body">
+        <div class="risk-questions-box" id="riskQuestionsBox">
+        </div>
+        <div class="field">
+         <label class="field-label">
+          Symptoms
+          <span class="opt">
+           select all that apply
+          </span>
+         </label>
+         <div class="symptom-grid" id="symptomGrid">
+         </div>
+        </div>
+       </div>
+       <div class="fstep-foot">
+        <button class="btn-ghost" onclick="goPrev(2)">
+         &larr; Previous
+        </button>
+        <button class="btn-primary" onclick="goNext(2)">
+         Continue
+         <svg fill="none" height="15" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="15">
+          <path d="M5 12h14M12 5l7 7-7 7">
+          </path>
+         </svg>
+        </button>
+       </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="form-step" id="step3">
+       <div class="fstep-head">
+        <div class="fstep-tag">
+         Step 3 of 5
+        </div>
+        <h2>
+         Your profile
+        </h2>
+        <p>
+         Basic demographic information significantly personalises health insights across all three medical systems.
+        </p>
+       </div>
+       <div class="fstep-body">
+        <div class="field-row">
+         <div class="field">
+          <label class="field-label">
+           Age
+           <span class="req">
+            *
+           </span>
+          </label>
+          <input class="field-input" id="age" max="120" min="1" placeholder="e.g. 32" type="number"/>
+         </div>
+         <div class="field">
+          <label class="field-label">
+           Weight (kg)
+           <span class="opt">
+            optional
+           </span>
+          </label>
+          <input class="field-input" id="weight" max="500" min="1" placeholder="e.g. 68" type="number"/>
+         </div>
+        </div>
+        <div class="field">
+         <label class="field-label">
+          Gender
+          <span class="req">
+           *
+          </span>
+         </label>
+         <div class="gender-grid">
+          <label class="gcrd">
+           <input name="gender" type="radio" value="Male"/>
+           <div class="gcrd-inner">
+            <span class="gcrd-sym">
+             &male;
+            </span>
+            <span class="gcrd-lbl">
+             Male
+            </span>
+           </div>
+          </label>
+          <label class="gcrd">
+           <input name="gender" type="radio" value="Female"/>
+           <div class="gcrd-inner">
+            <span class="gcrd-sym">
+             &female;
+            </span>
+            <span class="gcrd-lbl">
+             Female
+            </span>
+           </div>
+          </label>
+          <label class="gcrd">
+           <input name="gender" type="radio" value="Non-binary"/>
+           <div class="gcrd-inner">
+            <span class="gcrd-sym">
+             ⚧
+            </span>
+            <span class="gcrd-lbl">
+             Non-binary
+            </span>
+           </div>
+          </label>
+          <label class="gcrd">
+           <input name="gender" type="radio" value="Prefer not to say"/>
+           <div class="gcrd-inner">
+            <span class="gcrd-sym">
+             &mdash;
+            </span>
+            <span class="gcrd-lbl">
+             Prefer not to say
+            </span>
+           </div>
+          </label>
+         </div>
+        </div>
+        <div class="field">
+         <label class="field-label">
+          Pregnant or breastfeeding?
+         </label>
+         <div class="rcards">
+          <label class="rcard">
+           <input name="pregnancy" type="radio" value="No"/>
+           <span>
+            No
+           </span>
+          </label>
+          <label class="rcard">
+           <input name="pregnancy" type="radio" value="Pregnant"/>
+           <span>
+            Pregnant
+           </span>
+          </label>
+          <label class="rcard">
+           <input name="pregnancy" type="radio" value="Breastfeeding"/>
+           <span>
+            Breastfeeding
+           </span>
+          </label>
+          <label class="rcard">
+           <input name="pregnancy" type="radio" value="Not applicable"/>
+           <span>
+            Not applicable
+           </span>
+          </label>
+         </div>
+        </div>
+       </div>
+       <div class="fstep-foot">
+        <button class="btn-ghost" onclick="goPrev(3)">
+         &larr; Previous
+        </button>
+        <button class="btn-primary" onclick="goNext(3)">
+         Continue
+         <svg fill="none" height="15" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="15">
+          <path d="M5 12h14M12 5l7 7-7 7">
+          </path>
+         </svg>
+        </button>
+       </div>
+      </div>
+      <!-- Step 4 -->
+      <div class="form-step" id="step4">
+       <div class="fstep-head">
+        <div class="fstep-tag">
+         Step 4 of 5
+        </div>
+        <h2>
+         Medical history &amp; lifestyle
+        </h2>
+        <p>
+         This context shapes how each system interprets your condition and tailors its specific recommendations.
+        </p>
+       </div>
+       <div class="fstep-body">
+        <div class="field">
+         <label class="field-label">
+          Existing medical conditions
+         </label>
+         <div class="chips" id="condGroup">
+          <label class="chip">
+           <input type="checkbox" value="Diabetes"/>
+           <span>
+            Diabetes
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Hypertension"/>
+           <span>
+            Hypertension
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Asthma"/>
+           <span>
+            Asthma
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Heart Disease"/>
+           <span>
+            Heart Disease
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Thyroid Disorder"/>
+           <span>
+            Thyroid Disorder
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Arthritis"/>
+           <span>
+            Arthritis
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="PCOD/PCOS"/>
+           <span>
+            PCOD / PCOS
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Kidney Disease"/>
+           <span>
+            Kidney Disease
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="None"/>
+           <span>
+            None
+           </span>
+          </label>
+         </div>
+        </div>
+        <div class="field-row">
+         <div class="field">
+          <label class="field-label">
+           Current medications
+          </label>
+          <input class="field-input" id="medications" placeholder="e.g. Metformin 500mg, Atorvastatin" type="text"/>
+         </div>
+         <div class="field">
+          <label class="field-label">
+           Known allergies
+          </label>
+          <input class="field-input" id="allergies" placeholder="e.g. Penicillin, Sulfa drugs" type="text"/>
+         </div>
+        </div>
+        <div class="field">
+         <label class="field-label">
+          Dietary preference
+         </label>
+         <div class="rcards">
+          <label class="rcard">
+           <input name="diet" type="radio" value="Vegetarian"/>
+           <span>
+            Vegetarian
+           </span>
+          </label>
+          <label class="rcard">
+           <input name="diet" type="radio" value="Non-Vegetarian"/>
+           <span>
+            Non-Vegetarian
+           </span>
+          </label>
+          <label class="rcard">
+           <input name="diet" type="radio" value="Vegan"/>
+           <span>
+            Vegan
+           </span>
+          </label>
+          <label class="rcard">
+           <input name="diet" type="radio" value="No preference"/>
+           <span>
+            No preference
+           </span>
+          </label>
+         </div>
+        </div>
+        <div class="field">
+         <label class="field-label">
+          Lifestyle factors
+          <span class="opt">
+           select all that apply
+          </span>
+         </label>
+         <div class="chips lifestyle-chips">
+          <label class="chip">
+           <input type="checkbox" value="Smoker"/>
+           <span>
+            🚬 Smoker
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Alcohol"/>
+           <span>
+            🍷 Alcohol
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Sedentary"/>
+           <span>
+            🛋 Sedentary
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Active"/>
+           <span>
+            🏃 Active
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Poor sleep"/>
+           <span>
+            😴 Poor Sleep
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="High stress"/>
+           <span>
+            😰 High Stress
+           </span>
+          </label>
+          <label class="chip">
+           <input type="checkbox" value="Regular exercise"/>
+           <span>
+            💪 Exercise
+           </span>
+          </label>
+         </div>
+        </div>
+       </div>
+       <div class="fstep-foot">
+        <button class="btn-ghost" onclick="goPrev(4)">
+         &larr; Previous
+        </button>
+        <button class="btn-primary" onclick="goNext(4)">
+         Continue
+         <svg fill="none" height="15" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="15">
+          <path d="M5 12h14M12 5l7 7-7 7">
+          </path>
+         </svg>
+        </button>
+       </div>
+      </div>
+      <!-- Step 5 -->
+      <div class="form-step" id="step5">
+       <div class="fstep-head">
+        <div class="fstep-tag">
+         Step 5 of 5
+        </div>
+        <h2>
+         Review &amp; consent
+        </h2>
+        <p>
+         Check your information and confirm you understand the nature and limitations of this platform.
+        </p>
+       </div>
+       <div class="fstep-body">
+        <div class="review-block" id="reviewBlock">
+        </div>
+        <div class="risk-preview" id="riskPreview">
+        </div>
+        <div class="consent-block">
+         <div class="cb-title">
+          Please confirm before generating your report:
+         </div>
+         <label class="cb-row">
+          <input id="c1" type="checkbox"/>
+          <span>
+           I understand this platform provides
+           <strong>
+            informational overviews only
+           </strong>
+           &mdash; not medical diagnoses, prescriptions, or clinical advice.
+          </span>
+         </label>
+         <label class="cb-row">
+          <input id="c2" type="checkbox"/>
+          <span>
+           I will consult a
+           <strong>
+            qualified, licensed healthcare professional
+           </strong>
+           before making any treatment or medication decisions.
+          </span>
+         </label>
+         <label class="cb-row">
+          <input id="c3" type="checkbox"/>
+          <span>
+           In case of emergency symptoms &mdash; chest pain, breathlessness, loss of consciousness &mdash; I will
+           <strong>
+            seek immediate emergency care
+           </strong>
+           .
+          </span>
+         </label>
+         <label class="cb-row">
+          <input id="c4" type="checkbox"/>
+          <span>
+           I consent to this platform using my information
+           <strong>
+            solely to generate this health overview report
+           </strong>
+           .
+          </span>
+         </label>
+        </div>
+       </div>
+       <div class="fstep-foot">
+        <button class="btn-ghost" onclick="goPrev(5)">
+         &larr; Previous
+        </button>
+        <button class="btn-primary" id="submitBtn" onclick="submitForm()">
+         Generate Report
+         <svg fill="none" height="15" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="15">
+          <path d="M5 12h14M12 5l7 7-7 7">
+          </path>
+         </svg>
+        </button>
+       </div>
+      </div>
+     </main>
+    </div>
+   </div>
+  </div>
+  <!-- /page-form -->
+  <!-- RESULT PAGE -->
+  <div class="toast" id="toast" style="display:none">
+  </div>
+  <div class="generating-overlay" id="generatingOverlay" style="display:none">
+   <div class="generating-card">
+    <div class="loader-orbit">
+    </div>
+    <h3>
+     Building your health overview&hellip;
+    </h3>
+    <p>
+     AarogyaMitra is calculating risk, preparing your summary and organizing next steps.
+    </p>
+   </div>
+  </div>
+  <script src="assessment.js">
+  </script>
+ </body>
+</html>

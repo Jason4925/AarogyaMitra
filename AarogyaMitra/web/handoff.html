@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Doctor Handoff &mdash; AarogyaMitra
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=DM+Sans:opsz,wght@9..40,300;400;500;600&amp;display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="chat.html">
+      AI Chat
+     </a>
+     <a href="assessment.html">
+      Assessment
+     </a>
+     <a href="public-health.html">
+      Public Health
+     </a>
+     <a href="health-record.html">
+      Health Record
+     </a>
+     <a href="vaccination.html">
+      Vaccination
+     </a>
+     <a href="healthcare.html">
+      Healthcare
+     </a>
+     <a href="profile.html">
+      Profile
+     </a>
+     <a class="btn-ghost btn-sm" href="handoff-share.html">
+      Share Handoff
+     </a>
+     <button class="btn-ghost btn-sm" id="printHandoff">
+      Print / Save PDF
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    AI-to-Doctor Handoff
+   </div>
+   <h1 class="portal-h1">
+    AarogyaMitra Handoff
+   </h1>
+   <p class="portal-muted">
+    A structured summary prepared for discussion with a qualified clinician. It is not a diagnosis.
+   </p>
+   <section id="handoffBody" style="margin-top:22px">
+    Loading&hellip;
+   </section>
+  </main>
+  <script onerror="document.getElementById('handoffBody').innerHTML='&lt;section class=\" portal-card\"="" src="handoff.js?v=15">
+   <h3>Doctor Handoff script could not load</h3><p class=\"portal-muted\">Make sure handoff.js is present in the web folder and reload the page.</p></section>';">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Feedback &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="security.html">
+      Security
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Feedback
+   </div>
+   <h1 class="portal-h1">
+    Help us improve.
+   </h1>
+   <section class="portal-card" style="margin-top:22px;max-width:760px">
+    <label class="field-label">
+     Issue type
+    </label>
+    <select class="field-input" id="category">
+     <option value="incorrect_information">
+      Incorrect information
+     </option>
+     <option value="missing_warning">
+      Missing safety warning
+     </option>
+     <option value="facility_data">
+      Healthcare facility data
+     </option>
+     <option value="translation">
+      Translation
+     </option>
+     <option value="medicine_information">
+      Medicine information
+     </option>
+     <option value="technical">
+      Technical problem
+     </option>
+     <option value="privacy">
+      Privacy concern
+     </option>
+     <option value="other">
+      Other
+     </option>
+    </select>
+    <label class="field-label" style="display:block;margin-top:16px">
+     Description
+    </label>
+    <textarea class="field-textarea" id="description" placeholder="Tell us what happened&hellip;" rows="6"></textarea>
+    <label class="field-label" style="display:block;margin-top:16px">
+     Severity
+    </label>
+    <select class="field-input" id="severity">
+     <option value="normal">
+      Normal
+     </option>
+     <option value="high">
+      High
+     </option>
+     <option value="critical">
+      Critical / safety
+     </option>
+    </select>
+    <button class="btn-primary" id="submit" style="margin-top:16px">
+     Submit feedback
+    </button>
+    <div class="portal-muted" id="msg" style="margin-top:12px">
+    </div>
+   </section>
+  </main>
+  <script>
+   const API=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';document.getElementById('submit').onclick=async()=>{try{const s=JSON.parse(localStorage.getItem('aarogyamitra_session')||'null');if(!s?.token)throw Error('Login required');const r=await fetch(API+'/feedback',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+s.token},body:JSON.stringify({category:category.value,description:description.value,severity:severity.value})});const d=await r.json();if(!r.ok)throw Error(d.detail||'Unable to submit');document.getElementById('msg').textContent='Thanks. Ticket '+d.id+' has been recorded.';description.value=''}catch(e){document.getElementById('msg').textContent=e.message}}
+  </script>
+ </body>
+</html>

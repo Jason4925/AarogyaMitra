@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   My Health Record &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="chat.html">
+      AI Chat
+     </a>
+     <a href="assessment.html">
+      Assessment
+     </a>
+     <a href="public-health.html">
+      Public Health
+     </a>
+     <a class="active" href="health-record.html">
+      Health Record
+     </a>
+     <a href="healthcare.html">
+      Healthcare
+     </a>
+     <a href="vaccination.html">
+      Vaccination
+     </a>
+     <a href="profile.html">
+      Profile
+     </a>
+     <button class="btn-ghost btn-sm" id="logoutBtn">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Longitudinal Patient Record
+   </div>
+   <div class="portal-head">
+    <div>
+     <h1 class="portal-h1">
+      My Health Record
+     </h1>
+     <p class="portal-muted">
+      One place for your recent assessments, risk trend, follow-ups and health journey.
+     </p>
+    </div>
+    <a class="btn-primary" href="assessment.html">
+     New Assessment &rarr;
+    </a>
+   </div>
+   <div class="analytics-grid" id="recordSummary" style="margin-top:24px">
+   </div>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="portal-kicker">
+     Risk history
+    </div>
+    <h2 class="portal-h1" style="font-size:1.7rem;margin-top:4px">
+     Assessment history
+    </h2>
+    <div id="reportHistory" style="margin-top:16px">
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="portal-kicker">
+     My Health Journey
+    </div>
+    <div id="recordTimeline" style="margin-top:14px">
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="portal-kicker">
+     Current follow-up
+    </div>
+    <div id="recordFollowup" style="margin-top:10px">
+    </div>
+   </section>
+  </main>
+  <script src="portal.js">
+  </script>
+  <script src="health-record.js">
+  </script>
+  <script src="view-more.js?v=20">
+  </script>
+ </body>
+</html>

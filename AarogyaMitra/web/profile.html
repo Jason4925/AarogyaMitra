@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Profile &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="chat.html">
+      AI Chat
+     </a>
+     <a href="assessment.html">
+      Assessment
+     </a>
+     <a href="public-health.html">
+      Public Health
+     </a>
+     <a href="health-record.html">
+      Health Record
+     </a>
+     <a href="vaccination.html">
+      Vaccination
+     </a>
+     <a href="healthcare.html">
+      Healthcare
+     </a>
+     <a href="care-pathway.html">
+      Care Pathway
+     </a>
+     <a href="security.html">
+      Security
+     </a>
+     <a href="privacy.html">
+      Privacy
+     </a>
+     <a class="active" href="profile.html">
+      Profile
+     </a>
+     <button class="btn-ghost btn-sm" id="logoutBtn">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Account
+   </div>
+   <h1 class="portal-h1">
+    My Profile
+   </h1>
+   <p class="portal-muted">
+    Keep your basic profile and emergency contact information up to date.
+   </p>
+   <section class="portal-card" style="margin-top:22px">
+    <div class="form-inline-grid">
+     <label>
+      Name
+      <input autocomplete="name" id="profileName" maxlength="100" required=""/>
+     </label>
+     <label>
+      Phone
+      <input autocomplete="tel" id="profilePhone" maxlength="30"/>
+     </label>
+     <label>
+      Age
+      <input id="profileAge" inputmode="numeric" max="120" min="1" placeholder="Optional" type="number"/>
+     </label>
+     <label>
+      Gender
+      <select id="profileGender">
+       <option value="">
+        Not specified
+       </option>
+       <option>
+        Male
+       </option>
+       <option>
+        Female
+       </option>
+       <option>
+        Other
+       </option>
+      </select>
+     </label>
+     <label>
+      Location
+      <input autocomplete="address-level2" id="profileLocation" maxlength="255" placeholder="City / District"/>
+     </label>
+     <label>
+      Preferred language
+      <select id="profileLanguage">
+       <option>
+        English
+       </option>
+       <option>
+        Hindi
+       </option>
+       <option>
+        Marathi
+       </option>
+       <option>
+        Tamil
+       </option>
+       <option>
+        Telugu
+       </option>
+       <option>
+        Bengali
+       </option>
+       <option>
+        Gujarati
+       </option>
+       <option>
+        Kannada
+       </option>
+       <option>
+        Malayalam
+       </option>
+       <option>
+        Punjabi
+       </option>
+       <option>
+        Odia
+       </option>
+       <option>
+        Urdu
+       </option>
+      </select>
+     </label>
+     <label>
+      Emergency contact
+      <input autocomplete="tel" id="profileEmergency" maxlength="40" placeholder="+91..."/>
+     </label>
+     <label>
+      Allergies
+      <input id="profileAllergies" maxlength="500"/>
+     </label>
+    </div>
+    <label style="display:block;margin-top:14px;font-size:.82rem;font-weight:600">
+     Existing conditions
+     <textarea class="field-textarea" id="profileConditions" style="margin-top:7px"></textarea>
+    </label>
+    <div class="auth-error" id="profileMsg" style="margin-top:8px">
+    </div>
+    <button class="btn-primary" id="saveProfile" style="margin-top:12px">
+     Save Profile
+    </button>
+   </section>
+   <section class="profile-card-portal" style="margin-top:18px">
+    <div class="portal-kicker">
+     Security
+    </div>
+    <h3>
+     Privacy &amp; account controls moved
+    </h3>
+    <p class="portal-muted">
+     Manage memory, consent, data export and account deletion from the dedicated Security Center.
+    </p>
+    <a class="btn-primary btn-sm" href="security.html" style="margin-top:12px">
+     Open Security Center
+    </a>
+   </section>
+  </main>
+  <script src="profile.js?v=19">
+  </script>
+ </body>
+</html>

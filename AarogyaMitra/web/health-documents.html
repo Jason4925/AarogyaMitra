@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Health Documents &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="health-record.html">
+      Health Record
+     </a>
+     <a href="security.html">
+      Security
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Health Documents
+   </div>
+   <h1 class="portal-h1">
+    Upload &amp; confirm
+   </h1>
+   <p class="portal-muted">
+    AarogyaMitra stores upload metadata and any extracted text only after you review it. Do not assume extracted values are verified.
+   </p>
+   <section class="portal-card" style="max-width:760px;margin-top:22px">
+    <input class="field-input" id="file" type="file"/>
+    <button class="btn-primary" id="upload" style="margin-top:14px">
+     Upload document
+    </button>
+    <div class="portal-muted" id="msg" style="margin-top:10px">
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <h3>
+     Documents
+    </h3>
+    <div id="list" style="margin-top:14px">
+     Loading&hellip;
+    </div>
+   </section>
+  </main>
+  <script>
+   const API=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';function s(){try{return JSON.parse(localStorage.getItem('aarogyamitra_session')||'null')}catch{return null}}async function load(){try{const ss=s();const r=await fetch(API+'/health-record/documents',{headers:{Authorization:'Bearer '+ss.token}});const d=await r.json();list.innerHTML=(d.documents||[]).map(x=>`<div class="portal-card" style="margin:8px 0"><strong>${x.filename}</strong><div>${x.content_type}</div><div class="portal-muted">Uploaded ${x.created_at} · ${x.confirmed?'Confirmed':'Awaiting your confirmation'}</div>${!x.confirmed?`<button class="btn-primary btn-sm" onclick="confirmDoc('${x.id}')">Confirm extracted information</button>`:''}</div>`).join('')||'<p class="portal-muted">No documents uploaded.</p>'}catch(e){list.textContent=e.message}}async function confirmDoc(id){try{const ss=s();const r=await fetch(API+'/health-record/documents/'+id+'/confirm',{method:'POST',headers:{Authorization:'Bearer '+ss.token}});const d=await r.json();if(!r.ok)throw Error(d.detail||'Confirmation failed');load()}catch(e){alert(e.message)}}upload.onclick=async()=>{try{const ss=s();const f=file.files[0];if(!f)throw Error('Choose a file first');const fd=new FormData();fd.append('file',f);const r=await fetch(API+'/health-record/documents',{method:'POST',headers:{Authorization:'Bearer '+ss.token},body:fd});const d=await r.json();if(!r.ok)throw Error(d.detail||'Upload failed');msg.textContent='Uploaded. Review extracted information before treating it as part of your health record.';load()}catch(e){msg.textContent=e.message}};document.addEventListener('DOMContentLoaded',load)
+  </script>
+ </body>
+</html>

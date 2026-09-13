@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Care Pathway &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra logo" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="chat.html">
+      AI Chat
+     </a>
+     <a href="assessment.html">
+      Assessment
+     </a>
+     <a href="health-record.html">
+      Health Record
+     </a>
+     <a href="healthcare.html">
+      Healthcare
+     </a>
+     <a href="profile.html">
+      Profile
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    🧭 Decision Support
+   </div>
+   <h1 class="portal-h1">
+    Care Pathway.
+   </h1>
+   <p class="portal-muted">
+    A risk-aware sequence of next steps based on your latest saved assessment. This is guidance, not a diagnosis or prescription.
+   </p>
+   <div class="portal-card" id="pathwayStatus" style="margin-top:22px">
+    Loading your care pathway&hellip;
+   </div>
+   <div class="portal-grid-2" id="pathwayList" style="margin-top:18px">
+   </div>
+   <div class="followup-buttons" style="margin-top:22px">
+    <a class="btn-primary btn-sm" href="healthcare.html">
+     📍 Find Care
+    </a>
+    <a class="btn-ghost btn-sm" href="handoff.html">
+     🤝 Doctor Handoff
+    </a>
+    <a class="btn-ghost btn-sm" href="dashboard.html">
+     &larr; Dashboard
+    </a>
+   </div>
+  </main>
+  <script src="care-pathway.js?v=16">
+  </script>
+ </body>
+</html>

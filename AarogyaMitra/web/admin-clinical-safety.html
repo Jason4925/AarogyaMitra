@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Clinical Safety Governance &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="config.js">
+  </script>
+  <link href="assets/aarogyamitra-logo.png" rel="icon"/>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <div class="nav-logo">
+     <img alt="AarogyaMitra" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </div>
+    <div class="portal-links">
+     <a href="admin.html">
+      Command Center
+     </a>
+     <a href="admin-redteam.html">
+      Red-Team
+     </a>
+     <a href="knowledge-governance.html">
+      Knowledge
+     </a>
+     <button class="btn-ghost btn-sm" id="logout">
+      Logout
+     </button>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container">
+   <div class="portal-kicker">
+    Clinical Safety Governance
+   </div>
+   <h1 class="portal-h1">
+    Rules, evidence &amp; review status.
+   </h1>
+   <p class="portal-muted">
+    Rules default to draft. An active rule requires a named reviewer and evidence source; activation does not imply external clinical validation.
+   </p>
+   <section class="analytics-grid" id="metrics" style="margin-top:22px">
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <h3>
+     Clinical safety rules
+    </h3>
+    <div id="rules" style="margin-top:14px">
+    </div>
+   </section>
+   <section class="portal-card" style="margin-top:22px">
+    <h3>
+     Recommendation provenance
+    </h3>
+    <p class="portal-muted">
+     Every stored recommendation records evidence source, rule/model version, confidence, population applicability, contraindications and human-review requirement.
+    </p>
+    <div id="recommendations" style="margin-top:14px">
+    </div>
+   </section>
+  </main>
+  <script>
+   const API=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';function s(){try{return JSON.parse(localStorage.getItem('aarogyamitra_session')||'null')}catch{return null}}async function j(path,opt={}){const ss=s();if(!ss?.token)throw Error('Admin login required');const r=await fetch(API+path,{...opt,headers:{...(opt.headers||{}),Authorization:'Bearer '+ss.token,'Content-Type':'application/json'}});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.detail||'Request failed');return d}async function load(){try{const d=await j('/admin/clinical-safety');metrics.innerHTML=Object.entries(d.metrics).map(([k,v])=>`<div class="analytics-card"><div class="stat-label">${k.replaceAll('_',' ')}</div><div class="stat-value">${v}</div></div>`).join('');rules.innerHTML=(d.rules||[]).map(r=>`<div class="portal-card" style="margin:8px 0"><strong>${r.name}</strong><div>${r.description}</div><div class="portal-muted">Status: ${r.status} · Version: ${r.version} · Review: ${r.review_date||'not set'}</div><div class="portal-muted">Evidence: ${r.evidence_source||'not set'} · Reviewer: ${r.reviewer||'not set'}</div></div>`).join('')||'<p class="portal-muted">No rules.</p>';const q=await j('/admin/clinical-safety/recommendations');recommendations.innerHTML=(q.recommendations||[]).map(r=>`<div class="portal-card" style="margin:8px 0"><strong>${r.text}</strong><div class="portal-muted">Evidence: ${r.evidence_source||'—'} · Rule: ${r.rule_version} · Model: ${r.model_version}</div><div>Confidence: ${r.confidence} · Human review: ${r.human_review_required?'required':'not required'}</div></div>`).join('')||'<p class="portal-muted">No recommendations recorded yet.</p>'}catch(e){document.getElementById('rules').innerHTML='<p class="security-empty">'+e.message+'</p>'}}document.getElementById('logout').onclick=async()=>{const ss=s();try{await fetch(API+'/logout',{method:'POST',headers:{Authorization:'Bearer '+ss?.token}})}catch{}localStorage.removeItem('aarogyamitra_session');location.href='admin-login.html';};document.addEventListener('DOMContentLoaded',load)
+  </script>
+ </body>
+</html>

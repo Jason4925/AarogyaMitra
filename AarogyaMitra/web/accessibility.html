@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Accessibility &mdash; AarogyaMitra
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="assets/aarogyamitra-logo.png" rel="icon"/>
+  <style>
+   .a11y-row{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}.a11y-row:last-child{border-bottom:0}.switch{width:46px;height:26px}.a11y-panel{max-width:760px}.a11y-preview{padding:22px;border:1px dashed var(--border);border-radius:14px;margin-top:18px}
+  </style>
+ </head>
+ <body>
+  <header class="portal-nav">
+   <div class="nav-inner">
+    <a class="nav-logo" href="dashboard.html">
+     <img alt="AarogyaMitra" class="brand-logo-img" src="assets/aarogyamitra-logo.png"/>
+     <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
+    </a>
+    <div class="portal-links">
+     <a href="dashboard.html">
+      Dashboard
+     </a>
+     <a href="security.html">
+      Security
+     </a>
+     <a href="profile.html">
+      Profile
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="portal-container a11y-panel">
+   <div class="portal-kicker">
+    Accessibility
+   </div>
+   <h1 class="portal-h1">
+    Make AarogyaMitra easier to use.
+   </h1>
+   <div class="portal-card" style="margin-top:22px">
+    <div class="a11y-row">
+     <div>
+      <strong>
+       Large text
+      </strong>
+      <p class="portal-muted">
+       Increase readable text size.
+      </p>
+     </div>
+     <input id="largeText" type="checkbox"/>
+    </div>
+    <div class="a11y-row">
+     <div>
+      <strong>
+       High contrast
+      </strong>
+      <p class="portal-muted">
+       Increase contrast for borders and text.
+      </p>
+     </div>
+     <input id="highContrast" type="checkbox"/>
+    </div>
+    <div class="a11y-row">
+     <div>
+      <strong>
+       Simple language
+      </strong>
+      <p class="portal-muted">
+       Prefer shorter, clearer wording where supported.
+      </p>
+     </div>
+     <input id="simpleLanguage" type="checkbox"/>
+    </div>
+   </div>
+   <div class="a11y-preview">
+    <strong>
+     Preview
+    </strong>
+    <p id="previewText">
+     AarogyaMitra provides general health information and can help you decide what to do next.
+    </p>
+   </div>
+  </main>
+  <script>
+   const KEY='aarogyamitra_accessibility';function load(){let x={};try{x=JSON.parse(localStorage.getItem(KEY)||'{}')}catch{};for(const [id,k] of [['largeText','largeText'],['highContrast','highContrast'],['simpleLanguage','simpleLanguage']])document.getElementById(id).checked=!!x[k];apply(x)}function save(){const x={largeText:largeText.checked,highContrast:highContrast.checked,simpleLanguage:simpleLanguage.checked};localStorage.setItem(KEY,JSON.stringify(x));apply(x)}function apply(x){document.documentElement.classList.toggle('am-large-text',!!x.largeText);document.documentElement.classList.toggle('am-high-contrast',!!x.highContrast);document.getElementById('previewText').textContent=x.simpleLanguage?'AarogyaMitra gives clear health information and helps you decide what to do next.':'AarogyaMitra provides general health information and can help you decide what to do next.'}document.addEventListener('DOMContentLoaded',()=>{load();['largeText','highContrast','simpleLanguage'].forEach(id=>document.getElementById(id).addEventListener('change',save))});
+  </script>
+ </body>
+</html>
