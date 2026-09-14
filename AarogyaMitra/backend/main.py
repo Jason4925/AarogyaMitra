@@ -123,6 +123,14 @@ async def health():
     try: db=database_health();return {'status':'ok','service':'AarogyaMitra','database':db}
     except Exception as e:return JSONResponse({'status':'degraded','service':'AarogyaMitra','database':{'connected':False,'error':str(e)}},status_code=503)
 
+@app.get("/")
+def root():
+    return {
+        "status": "online",
+        "service": "AarogyaMitra API",
+        "message": "Backend is running successfully"
+    }
+
 @app.get('/public-health')
 async def public_health(language:str='English'):
     return get_public_health(language)
