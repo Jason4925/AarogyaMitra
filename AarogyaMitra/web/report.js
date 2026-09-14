@@ -1,6 +1,4 @@
-const API_BASE = window.AAROGYAMITRA_CONFIG = {
-  API_BASE: "https://api.aarogyamitra.example"
-};
+const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "https://aarogyamitra-zp8i.onrender.com/";
 function getSession() {
   try { return JSON.parse(localStorage.getItem("aarogyamitra_session") || "null"); }
   catch { return null; }

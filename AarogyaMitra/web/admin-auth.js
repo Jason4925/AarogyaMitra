@@ -1,6 +1,4 @@
-const API_BASE =window.AAROGYAMITRA_CONFIG = {
-  API_BASE: "https://api.aarogyamitra.example"
-};
+const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "https://aarogyamitra-zp8i.onrender.com/";
 
 document.getElementById("adminLoginForm").addEventListener("submit", async (event) => {
   event.preventDefault();
