@@ -18,7 +18,7 @@ SESSION_HOURS=int(os.getenv('SESSION_HOURS','12'))
 RATE_LIMIT_MAX=int(os.getenv('RATE_LIMIT_MAX','120'))
 RATE_LIMIT_WINDOW=int(os.getenv('RATE_LIMIT_WINDOW','60'))
 MAX_REQUEST_BYTES=int(os.getenv('MAX_REQUEST_BYTES','1000000'))
-FRONTEND_ORIGINS=[x.strip() for x in os.getenv('FRONTEND_ORIGINS','https://aarogya-mitra-ten.vercel.app/').split(',') if x.strip()]
+FRONTEND_ORIGINS=[x.strip() for x in os.getenv('FRONTEND_ORIGINS','https://aarogya-mitra-ten.vercel.app/,http://localhost:5500,http://127.0.0.1:5500').split(',') if x.strip()]
 DATABASE_URL=os.getenv('DATABASE_URL','').strip()
 DATABASE_POOLING=os.getenv('DATABASE_POOLING','true').lower()=='true'
 SUPABASE_URL=os.getenv('SUPABASE_URL','')
