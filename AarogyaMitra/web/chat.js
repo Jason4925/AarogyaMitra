@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     push("assistant", "Thinking…");
     render();
     try {
-      const data = await api("/ask", { method:"POST", body:JSON.stringify({message,user_id:session.user_id}) });
+      const data = await api("/ask", { method:"POST", body:JSON.stringify({message,user_id:session.user_id}) }, 180000);
       latestAssistantText = data.response || "I couldn't generate a response.";
       view[view.length - 1] = { role:"assistant", content:latestAssistantText, sources:data.sources||[], time:new Date().toISOString(), do_not_delay:!!data.do_not_delay, emergency_event_id:data.emergency_event_id||null };
     } catch (e) {
