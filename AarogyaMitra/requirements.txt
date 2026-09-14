@@ -13,3 +13,4 @@ psycopg[binary]>=3.2
 PyJWT>=2.10
 supabase>=2.15
 python-dotenv>=1.1
+ollama==0.6.2
