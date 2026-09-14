@@ -1,4 +1,4 @@
-const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "https://aarogyamitra-zp8i.onrender.com/";
+const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "https://aarogyamitra-zp8i.onrender.com";
 
 function saveSession(session) {
   localStorage.setItem("aarogyamitra_session", JSON.stringify(session));

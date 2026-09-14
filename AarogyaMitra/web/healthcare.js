@@ -1,4 +1,4 @@
-const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "https://aarogyamitra-zp8i.onrender.com/";
+const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "https://aarogyamitra-zp8i.onrender.com";
 function getSession(){try{return JSON.parse(localStorage.getItem('aarogyamitra_session')||'null')}catch{return null}}
 function esc(t){const d=document.createElement('div');d.textContent=String(t??'');return d.innerHTML}
 async function latestRisk(s){try{const r=await fetch(`${API_BASE}/latest-report`,{headers:{Authorization:`Bearer ${s.token}`},cache:'no-store'});if(!r.ok)return{};const d=await r.json();return d.risk_engine||d.risk||{}}catch{return{}}}
