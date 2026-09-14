@@ -1,5 +1,6 @@
-const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "http://localhost:8000";
-
+const API_BASE = window.AAROGYAMITRA_CONFIG = {
+  API_BASE: "https://api.aarogyamitra.example"
+};
 const formData = {
   mainProblem: "", duration: "", severity: 5, symptoms: [],
   age: "", gender: "", weight: "", pregnancy: "",

@@ -1,4 +1,6 @@
-const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "http://localhost:8000";
+const API_BASE =window.AAROGYAMITRA_CONFIG = {
+  API_BASE: "https://api.aarogyamitra.example"
+};
 
 function getSession(){try{return JSON.parse(localStorage.getItem("aarogyamitra_session")||"null");}catch{return null;}}
 function escapeHtml(v){const d=document.createElement("div");d.textContent=String(v??"");return d.innerHTML;}

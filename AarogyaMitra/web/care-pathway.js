@@ -1,4 +1,6 @@
-const API_BASE=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';
+const API_BASE=window.AAROGYAMITRA_CONFIG = {
+  API_BASE: "https://api.aarogyamitra.example"
+};
 function session(){try{return JSON.parse(localStorage.getItem('aarogyamitra_session')||'null')}catch{return null}}
 function esc(v){const d=document.createElement('div');d.textContent=String(v??'');return d.innerHTML}
 async function api(path,timeout=6000){const s=session();if(!s?.token){location.href='login.html';return null}const c=new AbortController(),t=setTimeout(()=>c.abort(),timeout);try{const r=await fetch(API_BASE+path,{headers:{Authorization:`Bearer ${s.token}`},cache:'no-store',signal:c.signal});const tx=await r.text();let d={};try{d=JSON.parse(tx)}catch{}if(!r.ok)throw new Error(d.detail||`HTTP ${r.status}`);return d}finally{clearTimeout(t)}}

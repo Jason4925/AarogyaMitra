@@ -1,4 +1,6 @@
-const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "http://localhost:8000";
+const API_BASE = window.AAROGYAMITRA_CONFIG = {
+  API_BASE: "https://api.aarogyamitra.example"
+};
 
 function saveSession(session) {
   localStorage.setItem("aarogyamitra_session", JSON.stringify(session));

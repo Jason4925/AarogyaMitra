@@ -1,4 +1,6 @@
-const API_BASE=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';
+const API_BASE=window.window.AAROGYAMITRA_CONFIG = {
+  API_BASE: "https://api.aarogyamitra.example"
+};
 function s(){try{return JSON.parse(localStorage.getItem('aarogyamitra_session')||'null')}catch{return null}}
 const esc=v=>{const d=document.createElement('div');d.textContent=String(v??'');return d.innerHTML};
 async function api(path,opts={}){const ss=s();if(!ss?.token){location.href='admin-login.html';throw new Error('Admin login required.')}const r=await fetch(API_BASE+path,{...opts,headers:{'Content-Type':'application/json',...(opts.headers||{}),Authorization:`Bearer ${ss.token}`},cache:'no-store'});const tx=await r.text();let d={};try{d=JSON.parse(tx)}catch{}if(!r.ok)throw new Error(d.detail||`HTTP ${r.status}`);return d}

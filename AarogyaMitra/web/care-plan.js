@@ -1,4 +1,6 @@
-const API_BASE=window.AAROGYAMITRA_CONFIG?.API_BASE||'http://localhost:8000';
+const API_BASE=window.AAROGYAMITRA_CONFIG = {
+  API_BASE: "https://api.aarogyamitra.example"
+};
 function s(){try{return JSON.parse(localStorage.getItem('aarogyamitra_session')||'null')}catch{return null}}
 function esc(v){const d=document.createElement('div');d.textContent=String(v??'');return d.innerHTML}
 async function load(){const ss=s();const b=document.getElementById('carePlanBox');if(!ss?.token){location.href='login.html';return}const c=new AbortController(),t=setTimeout(()=>c.abort(),6000);try{const r=await fetch(API_BASE+'/care-plan',{headers:{Authorization:`Bearer ${ss.token}`},signal:c.signal});const d=await r.json();if(!r.ok)throw new Error(d.detail||`HTTP ${r.status}`);const steps=d.steps||[];b.innerHTML=`<div class="portal-kicker">${esc(d.risk_level||'Low')} priority · score ${esc(d.risk_score||0)}</div><div style="margin-top:14px">${steps.map(x=>`<div style="padding:14px 0;border-bottom:1px solid var(--border)"><strong>${esc(x.when)} · ${esc(x.title)}</strong><p class="portal-muted" style="margin:5px 0 0">${esc(x.detail)}</p></div>`).join('')}</div><p class="portal-muted" style="margin-top:16px">${esc(d.safety_note)}</p>`}catch(e){b.innerHTML=`<h3>Care plan unavailable</h3><p class="portal-muted">${esc(e.message||'Complete an assessment first.')}</p>`}finally{clearTimeout(t)}}
