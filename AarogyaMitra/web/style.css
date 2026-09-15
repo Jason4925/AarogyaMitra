@@ -499,8 +499,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 }
 @media(max-width:768px){
   .nav-links{
-    display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;
-    background:var(--ivory);flex-direction:column;padding:40px 28px;gap:24px;align-items:flex-start;
+    display:none;position:fixed;top:var(--nav-h);left:0;right:auto;width:min(82vw,320px);height:calc(100dvh - var(--nav-h));
+    background:#faf8f5;box-shadow:0 12px 24px rgba(26,26,46,.12);flex-direction:column;padding:40px 28px;gap:24px;align-items:flex-start;overflow-y:auto;
   }
   .nav-links.open{display:flex}
   .nav-ham{display:flex}
