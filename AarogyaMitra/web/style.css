@@ -554,7 +554,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 .admin-menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 .admin-menu-toggle.open{color:var(--teal)}
 .admin-side-panel{display:none;position:fixed;top:68px;right:0;bottom:0;z-index:960;width:min(82vw,320px);flex-direction:column;align-items:stretch;gap:8px;padding:28px 22px;background:var(--white);border-left:1px solid var(--border);box-shadow:-12px 0 24px rgba(26,26,46,.12);opacity:0;pointer-events:none;visibility:hidden;transform:translateX(100%);transition:transform .25s ease,opacity .2s ease,visibility .25s ease}
-.admin-side-panel.open{opacity:1;pointer-events:auto;visibility:visible;transform:translateX(0)}
+.admin-side-panel.open{display:flex;opacity:1;pointer-events:auto;visibility:visible;transform:translateX(0)}
 .admin-side-panel a{padding:12px 10px;border-radius:8px;color:var(--ink-2);font-size:.88rem}
 .admin-side-panel a:hover{background:var(--ivory);color:var(--teal)}
 .admin-side-panel .btn-ghost{margin-top:8px}
