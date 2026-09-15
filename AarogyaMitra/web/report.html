@@ -21,17 +21,31 @@
      <img alt="AarogyaMitra" class="brand-name-img" src="assets/aarogyamitra-text.png"/>
     </a>
     <div class="result-actions">
-     <button class="btn-ghost btn-sm" id="dashboardBtn">
-      ✕ Dashboard
-     </button>
-     <button class="btn-ghost btn-sm" id="editInputsBtn">
-      &larr; Edit Inputs
-     </button>
-     <button class="btn-primary btn-sm" onclick="window.print()">
-      Print / Save PDF
+      <button class="btn-ghost btn-sm report-desktop-action" type="button" onclick="window.location.href='dashboard.html'">
+       ✕ Dashboard
+      </button>
+      <button class="btn-ghost btn-sm report-desktop-action" type="button" onclick="window.location.href='assessment.html'">
+       &larr; Edit Inputs
+      </button>
+      <button class="btn-primary btn-sm report-desktop-action" type="button" onclick="window.print()">
+       Print / Save PDF
+      </button>
+      <button class="report-menu-toggle" id="reportMenuToggle" type="button" aria-label="Open report actions" aria-expanded="false" aria-controls="reportSidePanel">
+        <span></span><span></span><span></span>
      </button>
     </div>
    </div>
+    <aside class="report-side-panel" id="reportSidePanel" aria-hidden="true">
+     <button class="btn-ghost btn-sm" id="dashboardBtn" type="button">
+      ✕ Dashboard
+     </button>
+     <button class="btn-ghost btn-sm" id="editInputsBtn" type="button">
+      &larr; Edit Inputs
+     </button>
+     <button class="btn-primary btn-sm" id="printReportBtn" type="button">
+      Print / Save PDF
+     </button>
+    </aside>
    <div class="result-body" id="resultBody">
    </div>
   </div>

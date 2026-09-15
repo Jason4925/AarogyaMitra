@@ -410,6 +410,12 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 }
 .result-logo{font-family:var(--fnt-d);font-size:1.3rem;color:var(--ink);font-weight:600;display:flex;align-items:center;gap:8px}
 .result-actions{display:flex;align-items:center;gap:12px}
+.report-menu-toggle{display:none;flex-direction:column;gap:4px;padding:8px;color:var(--ink)}
+.report-menu-toggle span{display:block;width:4px;height:4px;background:currentColor;border-radius:50%}
+.report-menu-toggle.open{color:var(--teal)}
+.report-side-panel{display:none;position:fixed;top:64px;right:0;bottom:0;z-index:110;width:min(82vw,300px);flex-direction:column;align-items:stretch;gap:12px;padding:32px 24px;background:var(--white);border-left:1px solid var(--border);box-shadow:-12px 0 24px rgba(26,26,46,.12);transform:translateX(100%);transition:transform .25s ease}
+.report-side-panel.open{transform:translateX(0)}
+.report-side-panel .btn-ghost,.report-side-panel .btn-primary{justify-content:center;width:100%;border-radius:10px}
 .result-body{max-width:840px;margin:0 auto;padding:40px 24px 80px}
 
 /* Report */
@@ -479,7 +485,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 
 /* ── PRINT ────────────────────────────────────────────────── */
 @media print{
-  .navbar,.form-topbar,.result-topbar,.result-actions,.disclaimer-block,.hero-scroll{display:none!important}
+  .navbar,.form-topbar,.result-topbar,.result-actions,.report-side-panel,.disclaimer-block,.hero-scroll{display:none!important}
   body{background:#fff}
   .result-body{max-width:100%;padding:0}
   .report-section{break-inside:avoid;box-shadow:none;border:1px solid #ddd}
@@ -498,6 +504,9 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
   .rs-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
+  .report-desktop-action{display:none}
+  .report-menu-toggle{display:flex}
+  .report-side-panel{display:flex}
   .nav-links{
     display:none;position:fixed;top:var(--nav-h);left:0;right:auto;width:min(82vw,260px);height:calc(100dvh - var(--nav-h));
     background:#faf8f5;box-shadow:0 12px 24px rgba(26,26,46,.12);flex-direction:column;padding:40px 28px;gap:24px;align-items:flex-start;overflow-y:auto;

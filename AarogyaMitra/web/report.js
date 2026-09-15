@@ -1,4 +1,4 @@
-const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "https://aarogyamitra-zp8i.onrender.com";
+const API_BASE = window.AAROGYAMITRA_CONFIG?.API_BASE || "http://localhost:8000";
 function getSession() {
   try { return JSON.parse(localStorage.getItem("aarogyamitra_session") || "null"); }
   catch { return null; }
@@ -488,6 +488,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const dashboard = document.getElementById("dashboardBtn");
   if (dashboard) dashboard.onclick = () => window.location.href = "dashboard.html";
+
+  const menuToggle = document.getElementById("reportMenuToggle");
+  const sidePanel = document.getElementById("reportSidePanel");
+  const printReport = document.getElementById("printReportBtn");
+  if (printReport) printReport.onclick = () => window.print();
+  if (menuToggle && sidePanel) {
+    menuToggle.onclick = () => {
+      const isOpen = sidePanel.classList.toggle("open");
+      menuToggle.classList.toggle("open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      sidePanel.setAttribute("aria-hidden", String(!isOpen));
+    };
+  }
 
   const root = document.getElementById("resultBody");
   if (!root) return;
