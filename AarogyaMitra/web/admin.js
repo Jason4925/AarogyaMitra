@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadEvaluations() {
     try {
-      const d = await api('/admin/evaluations', {}, 5000);
+      const d = await api('/admin/evaluations', {}, 20000);
       const rows = d.evaluations || [];
       const pass = rows.filter(x => x.passed).length;
       $('evaluationSummary').textContent = rows.length ? `${pass}/${rows.length} recent evaluation runs passed.` : 'No evaluations run yet.';
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadPopulation() {
     try {
-      const d = await api('/admin/population-analytics', {}, 5000);
+      const d = await api('/admin/population-analytics', {}, 20000);
       const dist = d.risk_distribution || {};
       $('populationCards').innerHTML = [['Reports', d.total_reports || 0], ['High risk', dist.High || 0], ['Moderate risk', dist.Moderate || 0], ['Low risk', dist.Low || 0]].map(x => `<div class="analytics-card"><div class="stat-label">${x[0]}</div><div class="stat-value">${x[1]}</div></div>`).join('');
       $('symptomTable').innerHTML = (d.top_symptoms || []).map(x => `<tr><td>${escapeHtml(x.name)}</td><td>${escapeHtml(x.count)}</td></tr>`).join('') || '<tr><td colspan="2">No aggregated symptom data yet.</td></tr>';
@@ -81,14 +81,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadOutbreaks() {
     try {
-      const d = await api('/admin/outbreak-signals', {}, 5000);
+      const d = await api('/admin/outbreak-signals', {}, 20000);
       $('outbreakSignals').innerHTML = (d.signals || []).map(x => `<div class="signal-card"><strong>⚠️ ${escapeHtml(x.signal)}</strong><p class="portal-muted">${escapeHtml(x.count)} reports in the last ${escapeHtml(x.window_days)} days · ${escapeHtml(x.confidence)} confidence · ${escapeHtml(x.status)}</p></div>`).join('') || '<div class="signal-card"><strong>No current signal</strong><p class="portal-muted">No simple symptom-cluster threshold has been reached in the last 7 days.</p></div>';
     } catch {
       $('outbreakSignals').innerHTML = '<div class="signal-card">Early-warning data unavailable.</div>';
     }
   }
 
-  async function safe(path, timeout=6000) {
+  async function safe(path, timeout=20000) {
     try { return {ok:true, data:await api(path, {}, timeout)}; }
     catch (error) { console.warn(`Admin request failed: ${path}`, error); return {ok:false,error}; }
   }
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         </article>`).join('');
     };
     try {
-      const d = await api('/admin/readiness', {}, 5000);
+      const d = await api('/admin/readiness', {}, 20000);
       const rows = d.items || [];
       render('intelligenceGrid','intelligenceReadiness',rows.filter(x => x.category === 'intelligence'),'Intelligence data unavailable.');
       render('evidenceGrid','evidenceReadiness',rows.filter(x => x.category === 'evidence'),'Evidence/readiness data unavailable.');
